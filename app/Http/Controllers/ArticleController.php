@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use \Illuminate\Http\JsonResponse;
 
@@ -36,7 +37,8 @@ class ArticleController extends Controller
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
                 'imgUrl' => 'required',
-                'category_id' => 'string'
+                'category_id' => 'string',
+                'tags' => 'array'
             ]);
 
             // Create a new Article instance
@@ -50,15 +52,24 @@ class ArticleController extends Controller
             if (!$article->save()) {
                 return response()->json(['error' => 'An error occurred while saving the article.'], 500);
             } else {
+                //making sure the article is save before adding tags to it
+                //to avoid article id not found error
+                $tagIds = [];
+                foreach ($request->tags as $tagName) {
+                    // Find the tag by name, or create it if it doesn't exist
+                    $tag = \App\Models\Tag::firstOrCreate(['title' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
+                // Sync the tags with the article
+                $article->tags()->sync($tagIds);
                 return response()->json(['message' => 'Article was created successfully.'], 200);
             }
-
 
             return response()->json($article, 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['error' => $e->getMessage()], 422);
         } catch (\Throwable $e) {
-            return response()->json(['error' => 'An error occurred while creating the article.'], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
