@@ -36,7 +36,7 @@ class ArticleController extends Controller
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
-                'imgUrl' => 'required',
+                'imgUrl' => 'url',
                 'category_id' => 'string',
                 'tags' => 'array'
             ]);
@@ -44,6 +44,8 @@ class ArticleController extends Controller
             // Create a new Article instance
             $article = new Article();
             $article->title = $request->title;
+            $newSlug = str_replace(' ', '-', $article->title);
+            $article->slug = $newSlug;
             $article->content = $request->content;
             $article->imgUrl = $request->imgUrl;
             $article->category_id = $request->category_id;
@@ -52,17 +54,19 @@ class ArticleController extends Controller
             if (!$article->save()) {
                 return response()->json(['error' => 'An error occurred while saving the article.'], 500);
             } else {
-                //making sure the article is save before adding tags to it
-                //to avoid article id not found error
-                $tagIds = [];
-                foreach ($request->tags as $tagName) {
-                    // Find the tag by name, or create it if it doesn't exist
-                    $tag = \App\Models\Tag::firstOrCreate(['title' => $tagName]);
-                    $tagIds[] = $tag->id;
+                if (isset($request->tags)) {
+                    //making sure the article is save before adding tags to it
+                    //to avoid article id not found error
+                    $tagIds = [];
+                    foreach ($request->tags as $tagName) {
+                        // Find the tag by name, or create it if it doesn't exist
+                        $tag = Tag::firstOrCreate(['title' => $tagName]);
+                        $tagIds[] = $tag->id;
+                    }
+                    // Sync the tags with the article
+                    $article->tags()->sync($tagIds);
+                    return response()->json(['message' => 'Article was created successfully.'], 200);
                 }
-                // Sync the tags with the article
-                $article->tags()->sync($tagIds);
-                return response()->json(['message' => 'Article was created successfully.'], 200);
             }
 
             return response()->json($article, 201);
