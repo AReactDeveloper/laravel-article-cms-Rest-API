@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use \Illuminate\Http\JsonResponse;
-use \Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
 class ArticleController extends Controller
@@ -28,20 +26,7 @@ class ArticleController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function store(Request $request): JsonResponse
     {
 
@@ -65,7 +50,7 @@ class ArticleController extends Controller
             if (!$article->save()) {
                 return response()->json(['error' => 'An error occurred while saving the article.'], 500);
             } else {
-                return response()->json(['message' => 'Article was created succufuly.'], 200);
+                return response()->json(['message' => 'Article was created successfully.'], 200);
             }
 
 
@@ -80,39 +65,21 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article): JsonResponse
+    public function show($id): JsonResponse
     {
-        try {
-            // Find the article with the specified ID, and eager load the tags relationship
-            $article = Article::with('tags')->findOrFail($article->id);
-            $category = Category::findOrFail($article->category_id);
-            // Return the article with its tags as a JSON response
-            return response()->json($category, 200);
-        } catch (ModelNotFoundException $e) {
-            // If the article was not found, return a 404 Not Found response
+        $article =  Article::find($id);
+        if ($article === null) {
             return response()->json(['error' => 'Article not found'], 404);
-        } catch (\Throwable $e) {
-            // If any other error occurs, return a 500 Internal Server Error response
-            return response()->json(['error' => 'Failed to retrieve article'], 500);
         }
+        return response()->json($article, 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Article $article): JsonResponse
     {
         try {
             if (!$article) {
-                return response()->json('article was not found');
+                return response()->json(['error' => 'Article was not found.'], 200);
             }
 
             // Validate the incoming request
@@ -127,7 +94,7 @@ class ArticleController extends Controller
             $article->imgUrl = $request->imgUrl;
             $article->save();
 
-            return response()->json('done');
+            return response()->json(['message' => 'Article was updated successfully.'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
@@ -143,7 +110,7 @@ class ArticleController extends Controller
             $article->delete();
 
             // Return a 204 No Content response
-            return response()->json('deleted', 204);
+            return response()->json(['message' => 'Article was deleted successfully.'], 204);
         } catch (\Throwable $e) {
             // If any error occurs, return a 500 Internal Server Error response
             return response()->json(['error' => 'Failed to delete article'], 500);
