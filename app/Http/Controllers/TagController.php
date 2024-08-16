@@ -31,14 +31,31 @@ class TagController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255'
+        ]);
+
+        $tag = Tag::create($validated);
+        return response()->json(['message' => 'tag was created successfully.'], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Tag $tag)
+    public function show($id)
     {
-        //
+        // Check if the tag exists
+        $tag = Tag::find($id);
+        if (!$tag) {
+            return response()->json(['error' => 'Tag not found'], 404);
+        }
+
+        // Return the tag
+        try {
+            return response()->json($tag);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -54,7 +71,22 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        // Check if the tag exists
+        if (!$tag) {
+            return response()->json(['error' => 'Tag not found'], 404);
+        }
+
+        // Validate the incoming request
+        $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        // Update the tag
+        $tag->update([
+            'title' => $request->title,
+        ]);
+
+        return response()->json(['message' => 'Tag was updated successfully.'], 200);
     }
 
     /**
@@ -62,6 +94,17 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        // Check if the tag exists
+        if ($tag === null) {
+            return response()->json(['error' => 'Tag not found'], 404);
+        }
+
+        try {
+            // Delete the tag
+            $tag->delete();
+            return response()->json(['message' => 'Tag was deleted successfully.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

@@ -4,45 +4,37 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use  \Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Handle an incoming authentication request.
-     *
-     * @param LoginRequest $request The incoming authentication request.
-     * @return Response The response to the authentication request.
-     * @throws \Illuminate\Validation\ValidationException If the request is invalid.
+     * Display the login view.
      */
-    public function store(LoginRequest $request): Response
+    public function create(): View
     {
-        // Authenticate the user.
-        if (! $request->authenticate()) {
-            throw ValidationException::withMessages([
-                'email' => [trans('auth.failed')],
-            ]);
-        }
+        return view('auth.login');
+    }
 
-        // Regenerate the session.
-        try {
-            $request->session()->regenerate();
-        } catch (\Exception $e) {
-            // Throw an exception if the session cannot be regenerated.
-            throw new \RuntimeException('Session regeneration failed.', 0, $e);
-        }
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function store(LoginRequest $request): RedirectResponse
+    {
+        $request->authenticate();
 
-        // Return a no content response.
-        return response()->noContent();
+        $request->session()->regenerate();
+
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(Request $request): Response
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
 
@@ -50,6 +42,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return response()->noContent();
+        return redirect('/');
     }
 }

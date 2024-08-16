@@ -37,9 +37,18 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $category = Category::find($id);
+        if ($category === null) {
+            return response()->json(['error' => 'Category not found'], 404);
+        }
+
+        try {
+            return response()->json($category);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
 
@@ -48,14 +57,33 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        if ($category === null) {
+            return response()->json(['error' => 'Category not found'], 404);
+        }
+
+        try {
+            $validated = $request->validate([
+                'title' => 'required|string|max:255'
+            ]);
+
+            $category->update($validated);
+            return response()->json(['message' => 'Category was updated successfully.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if ($category === null) {
+            return response()->json(['error' => 'Category was not found.'], 404);
+        } else {
+            $category->delete();
+            return response()->json(['message' => 'Category was deleted successfully.'], 204);
+        }
     }
 }

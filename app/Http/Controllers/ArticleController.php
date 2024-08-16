@@ -90,45 +90,40 @@ class ArticleController extends Controller
     }
 
 
-    public function update(Request $request, Article $article): JsonResponse
+    public function update(Request $request, $id): JsonResponse
     {
-        try {
-            if (!$article) {
-                return response()->json(['error' => 'Article was not found.'], 200);
-            }
-
+        $article =  Article::find($id);
+        if ($article === null) {
+            return response()->json(['error' => 'Article was not found.'], 404);
+        } else {
             // Validate the incoming request
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
-                'imgUrl' => 'required',
+                'imgUrl' => 'string',
             ]);
 
             $article->title = $request->title;
             $article->content = $request->content;
             $article->imgUrl = $request->imgUrl;
             $article->save();
-
             return response()->json(['message' => 'Article was updated successfully.'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article): JsonResponse
+    public function destroy($id): JsonResponse
     {
-        try {
+        $article = Article::find($id);
+        if ($article === null) {
+            return response()->json(['error' => 'Article was not found.'], 404);
+        } else {
             // Delete the article
             $article->delete();
-
             // Return a 204 No Content response
             return response()->json(['message' => 'Article was deleted successfully.'], 204);
-        } catch (\Throwable $e) {
-            // If any error occurs, return a 500 Internal Server Error response
-            return response()->json(['error' => 'Failed to delete article'], 500);
         }
     }
 }
