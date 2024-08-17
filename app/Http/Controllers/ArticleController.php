@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Tag;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use \Illuminate\Http\JsonResponse;
-
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -22,8 +23,8 @@ class ArticleController extends Controller
             $articles = Article::query()->with('tags')->get();
 
             return response()->json($articles, 200);
-        } catch (\Throwable $e) {
-            return response()->json(['error' => 'An error occurred while retrieving articles.'], 500);
+        } catch (QueryException $e) { //custom errror for db query
+            return response()->json(['error' => 'Not Found'], 404);
         }
     }
 
@@ -45,10 +46,22 @@ class ArticleController extends Controller
             $article = new Article();
             $article->title = $request->title;
             $newSlug = str_replace(' ', '-', $article->title);
+
+            // The 'slug' field must be unique to avoid conflicts when accessing content via URLs.
+            // One solution is to dynamically generate a unique slug if the provided slug already exists in the database.
+            // Another approach could be to instruct the user to provide a unique slug manually.
+            // Due to performance concerns, we are opting to have the user change the title if a conflict occurs,
+            // rather than generating a unique slug dynamically.
+
+            if (DB::table('articles')->where('slug', $newSlug)->exists()) {
+                return response()->json(['error' => 'Article already exists. titles must be unique'], 409);
+            }
+
             $article->slug = $newSlug;
             $article->content = $request->content;
             $article->imgUrl = $request->imgUrl;
             $article->category_id = $request->category_id;
+
 
             // Attempt to save the article
             if (!$article->save()) {
@@ -71,9 +84,9 @@ class ArticleController extends Controller
 
             return response()->json($article, 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json(['error' => $e->getMessage()], 422);
+            return response()->json(['error' => 'Validation failed. Please check your input.'], 422);
         } catch (\Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'An unexpected error occurred. Please try again later.'], 500);
         }
     }
 

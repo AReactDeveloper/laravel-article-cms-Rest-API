@@ -12,9 +12,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        $categories = Category::all();
-        return response()->json($categories);
+        try {
+            $categories = Category::all();
+            return response()->json($categories);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);
+        }
     }
 
     /**
@@ -47,7 +50,7 @@ class CategoryController extends Controller
         try {
             return response()->json($category);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);
         }
     }
 
@@ -69,7 +72,7 @@ class CategoryController extends Controller
             $category->update($validated);
             return response()->json(['message' => 'Category was updated successfully.'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'An unexpected error occurred. when updating this category.'], 500);
         }
     }
 

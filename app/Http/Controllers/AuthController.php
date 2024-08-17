@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -16,14 +17,43 @@ class AuthController extends Controller
      */
     public function getAuthUser()
     {
-        $user = Auth::user();
-        $tokens = $user->tokens;
+        try {
+            $user = Auth::user();
 
-        return response()->json([
-            'user' => $user,
-            'tokens' => $tokens
-        ], 201);
+            $tokens = $user->tokens;
+
+            if ($tokens === null) {
+                return response()->json(['error' => 'Tokens not found'], 404);
+            }
+
+            return response()->json([
+                'user' => $user,
+                'tokens' => $tokens
+            ], 201);
+        } catch (\Exception $e) {
+            Log::error('AuthController@getAuthUser: ' . $e->getMessage());
+            return response()->json(['error' => 'An error occurred'], 500);
+        }
     }
+
+    public function updateUser(Request $request)
+    {
+        try {
+            if (!$request->has('email') || !$request->has('password')) {
+                return response()->json(['error' => 'Missing email or password'], 400);
+            }
+
+            $credentials = $request->only('email', 'password');
+            $request->user()->fill($credentials);
+            $request->user()->save();
+
+            return response()->json(['message' => 'Profile Updated'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An error occurred'], 500);
+        }
+    }
+
+
     public function login(Request $request)
     {
         try {
@@ -42,7 +72,6 @@ class AuthController extends Controller
 
             return response()->json(['user' => $user, 'token' => $token], 200);
         } catch (\Exception $e) {
-            Log::error('AuthController@login: ' . $e->getMessage());
             return response()->json(['error' => 'An error occurred'], 500);
         }
     }
@@ -67,7 +96,6 @@ class AuthController extends Controller
             return response()->json(['message' => 'Logged out successfully']);
         } catch (\Exception $e) {
             // Log the exception and return an error response
-            Log::error('Exception occurred while logging out the user: ' . $e->getMessage());
             return response()->json(['error' => 'An error occurred while logging out the user'], 500);
         }
     }
