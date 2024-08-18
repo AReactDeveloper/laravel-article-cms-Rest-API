@@ -40,7 +40,7 @@ class AuthController extends Controller
     {
         try {
             if (!$request->has('email') || !$request->has('password')) {
-                return response()->json(['error' => 'Missing email or password'], 400);
+                return response()->json(['error' => 'check your credentials and try again'], 400);
             }
 
             $credentials = $request->only('email', 'password');

@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
             // Other middleware aliases can be added here
         ]);
         //disable csrf temporary for testing in postman remove in production
-        $middleware->validateCsrfTokens(except: []);
+        //$middleware->validateCsrfTokens(except: []);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // Custom exception handling can be added here

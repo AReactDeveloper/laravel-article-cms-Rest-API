@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\SiteInfo;
 use App\Models\Tag;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+use function Laravel\Prompts\error;
 
 class ArticleController extends Controller
 {
@@ -19,12 +23,20 @@ class ArticleController extends Controller
     public function index(): JsonResponse
     {
         try {
+            //load posts per page from site settings
+            //this can be changed from the front end admin dashboard
+            // ?? 10 provides default value if post per page is not set
+            $postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
             // Eager load the tags relationship for all articles
-            $articles = Article::query()->with('tags')->get();
+            $articles = Article::query()->with('tags')->paginate($postPerPage);
 
+            if ($articles === null) {
+                return response()->json(['error' => 'No articles found'], 404);
+            }
+            // No need to check for null; $articles will always be an instance of LengthAwarePaginator
             return response()->json($articles, 200);
         } catch (QueryException $e) { //custom errror for db query
-            return response()->json(['error' => 'Not Found'], 404);
+            return response()->json(['error' => "An error occurred while fetching articles"], 500);
         }
     }
 
@@ -39,7 +51,8 @@ class ArticleController extends Controller
                 'content' => 'required|string|min:3',
                 'imgUrl' => 'url',
                 'category_id' => 'string',
-                'tags' => 'array'
+                'tags' => 'array',
+                'image' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:2048' //image validation
             ]);
 
             // Create a new Article instance
@@ -62,6 +75,13 @@ class ArticleController extends Controller
             $article->imgUrl = $request->imgUrl;
             $article->category_id = $request->category_id;
 
+            // Check if an image file was uploaded
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $cleanFilename = Str::slug($request->title)  . '.' . $image->extension(); // Generate a clean filename
+                $image->storeAs('public/images', $cleanFilename); // Store the image
+                $article->imgUrl = '/storage/images/' . $cleanFilename; // Set the image URL
+            }
 
             // Attempt to save the article
             if (!$article->save()) {
@@ -84,9 +104,9 @@ class ArticleController extends Controller
 
             return response()->json($article, 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json(['error' => 'Validation failed. Please check your input.'], 422);
+            return response()->json(['error' => $e->getMessage()], 422);
         } catch (\Throwable $e) {
-            return response()->json(['error' => 'An unexpected error occurred. Please try again later.'], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
@@ -95,7 +115,7 @@ class ArticleController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $article =  Article::find($id);
+        $article = Article::with('tags')->find($id);
         if ($article === null) {
             return response()->json(['error' => 'Article not found'], 404);
         }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
@@ -24,5 +25,6 @@ Route::middleware('auth:sanctum')->group(
         Route::apiResource('tags', TagController::class);
         Route::apiResource('pages', PageController::class);
         Route::apiResource('settings', SiteInfoController::class);
+        Route::apiResource('file', AttachmentsController::class);
     }
 );

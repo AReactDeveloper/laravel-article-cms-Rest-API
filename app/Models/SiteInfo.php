@@ -12,6 +12,7 @@ class SiteInfo extends Model
     protected $fillable = [
         'siteFavicon',
         'siteLogo',
+        'sitePostsPerPage',
         'siteName',
         'siteDescription',
         'siteUrl',

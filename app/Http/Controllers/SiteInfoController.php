@@ -73,7 +73,9 @@ class SiteInfoController extends Controller
                     $siteInfo->save(); // Save changes to the database
 
                     // Return the updated model as a JSON response
-                    return response()->json($siteInfo->$setting . " - is your now blog title successfully", 200);
+                    return response()->json([
+                        'message' => $siteInfo->$setting . ' - is your new ' . $setting . ' successfully'
+                    ], 200);
                 } else {
                     // Handle case where no record was found
                     return response()->json(['error' => 'Not Found'], 404);
