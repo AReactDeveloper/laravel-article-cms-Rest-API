@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -15,6 +14,11 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse The JSON response.
      */
+
+    public function getToken(Request $request)
+    {
+        return response()->json(['csrfToken' => csrf_token()]);
+    }
     public function getAuthUser()
     {
         try {
