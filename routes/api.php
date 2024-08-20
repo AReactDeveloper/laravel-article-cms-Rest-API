@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 Route::Post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(
     function () {
-        Route::post('logout', [AuthController::class, 'logout']);
         Route::put('user', [AuthController::class, 'updateUser']);
         Route::get('user', [AuthController::class, 'getAuthUser']);
+        Route::post('logout', [AuthController::class, 'logout']);
 
         Route::apiResource('articles', ArticleController::class);
         Route::apiResource('categories', CategoryController::class);
