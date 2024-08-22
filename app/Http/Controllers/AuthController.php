@@ -60,29 +60,40 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            // Join error messages into a single string
-            $errorMessages = implode(', ', $validator->messages()->all());
-            return response()->json(['error' => $errorMessages], 400);
-        }
-
         try {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                $errorMessages = implode(', ', $validator->errors()->all());
+                return response()->json([
+                    'error' => 'Validation failed',
+                    'messages' => $errorMessages
+                ], 400);
+            }
+
             if (!Auth::attempt($request->only('email', 'password'))) {
-                return response()->json(['error' => 'Invalid credentials'], 401);
+                return response()->json([
+                    'error' => 'Invalid credentials',
+                    'message' => 'Authentication failed'
+                ], 401);
             }
 
             $user = Auth::user(); // Get authenticated user
             $token = $user->createToken('auth_token')->plainTextToken;
 
-            return response()->json(['user' => $user, 'token' => $token], 200);
+            return response()->json([
+                'user' => $user,
+                'token' => $token,
+                'message' => 'Login successful'
+            ], 200);
         } catch (\Exception $e) {
-            Log::error('AuthController@login: ' . $e->getMessage());
-            return response()->json(['error' => 'An error occurred'], 500);
+            return response()->json([
+                'error' => 'Validation failed',
+                'messages' => $validator->errors()
+            ], 400);
         }
     }
 

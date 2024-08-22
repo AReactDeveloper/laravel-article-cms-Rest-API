@@ -26,14 +26,15 @@ class ArticleController extends Controller
             //load posts per page from site settings
             //this can be changed from the front end admin dashboard
             // ?? 10 provides default value if post per page is not set
-            $postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
+            //$postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
             // Eager load the tags relationship for all articles
-            $articles = Article::query()->with('tags')->paginate($postPerPage);
+            $articles = Article::with('tags')->get();
+            //->paginate($postPerPage);
 
             if ($articles === null) {
-                return response()->json(['error' => 'No articles found'], 404);
+                return response()->json(['error' => 'No article was found , create one today'], 404);
             }
-            // No need to check for null; $articles will always be an instance of LengthAwarePaginator
+
             return response()->json($articles, 200);
         } catch (QueryException $e) { //custom errror for db query
             return response()->json(['error' => "An error occurred while fetching articles"], 500);
