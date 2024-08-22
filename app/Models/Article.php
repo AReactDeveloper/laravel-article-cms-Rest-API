@@ -13,7 +13,7 @@ class Article extends Model
 {
     protected $fillable = ['title', 'content', 'imgUrl', 'category_id'];
 
-    public function categories(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\SiteInfo;
 use App\Models\Tag;
 use Illuminate\Database\QueryException;
@@ -28,8 +29,10 @@ class ArticleController extends Controller
             // ?? 10 provides default value if post per page is not set
             //$postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
             // Eager load the tags relationship for all articles
-            $articles = Article::with('tags')->get();
-            //->paginate($postPerPage);
+
+            $articles = Article::with(['category', 'tags' => function ($query) {
+                $query->withcount('articles')->get(); // Get Post count from each category and tag
+            }])->get();
 
             if ($articles === null) {
                 return response()->json(['error' => 'No article was found , create one today'], 404);
