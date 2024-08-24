@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Attachments;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class AttachmentsController extends Controller
 {
@@ -17,11 +16,15 @@ class AttachmentsController extends Controller
     {
         try {
             $attachments = Attachments::all();
-            if ($attachments !== null) {
-                return response()->json($attachments);
-            } else {
+
+            if ($attachments === null) {
                 return response()->json(['message' => 'No attachments found'], 404);
             }
+
+            return response()->json([
+                'success' => true,
+                'url' => $attachments,
+            ]);
         } catch (\Exception $e) {
             return response()->json(['message' => 'An error occurred while fetching attachments'], 500);
         }
@@ -48,9 +51,10 @@ class AttachmentsController extends Controller
                 $image = $request->file('file');
                 $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Generate a clean filename
                 $image->storeAs('public/images/attachments/', $cleanFilename); // Store the image
-                $attachment->url = '/storage/images/attachments/' . $cleanFilename; // Set the image URL                $attachment->save();
+                $attachment->url = '/storage/images/attachments/' . $cleanFilename; // Set the image URL
             }
 
+            $attachment->save();
 
             return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES); //skipping anoying json slashes
         } catch (\Exception $e) {
