@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attachments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AttachmentsController extends Controller
 {
@@ -78,9 +79,13 @@ class AttachmentsController extends Controller
 
     public function destroy($id)
     {
+        // Find the attachment by its ID
         $attachment = Attachments::find($id);
+
         if ($attachment !== null) {
+            // Delete the attachment record from the database
             $attachment->delete();
+
             return response()->json(['message' => 'Attachment deleted successfully.'], 200);
         } else {
             return response()->json(['error' => 'Attachment not found'], 404);

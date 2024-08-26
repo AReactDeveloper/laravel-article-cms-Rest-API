@@ -29,10 +29,11 @@ class ArticleController extends Controller
             // ?? 10 provides default value if post per page is not set
             //$postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
             // Eager load the tags relationship for all articles
-
-            $articles = Article::with(['category', 'tags' => function ($query) {
+            //get the latest created one
+            $articles = Article::orderBy('created_at', 'desc')->with(['category', 'tags' => function ($query) {
                 $query->withcount('articles')->get(); // Get Post count from each category and tag
             }])->get();
+
 
             if ($articles === null) {
                 return response()->json(['error' => 'No article was found , create one today'], 404);
@@ -54,9 +55,8 @@ class ArticleController extends Controller
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
                 'imgUrl' => 'url',
-                'category_id' => 'string',
-                'tags' => 'array',
-                'image' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:2048' //image validation
+                'category_id' => 'integer',
+                'tags' => 'array'
             ]);
 
             // Create a new Article instance
