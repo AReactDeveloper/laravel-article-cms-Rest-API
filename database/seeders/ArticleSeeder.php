@@ -28,7 +28,7 @@ class ArticleSeeder extends Seeder
             $articleId = DB::table('articles')->insert([
                 'title' => 'Article Title ' . $index,
                 'slug' => 'article-title-' . $index,
-                'content' => '<p>This is the content for article ' . $index . '. <strong>HTML content</strong> here.</p>',
+                'content' => 'hello world',
                 'imgUrl' => 'https://via.placeholder.com/150',
                 'category_id' => $categoryIds[array_rand($categoryIds)],
                 'created_at' => now(),
