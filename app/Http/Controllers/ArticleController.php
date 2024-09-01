@@ -129,22 +129,69 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id): JsonResponse
     {
-        $article =  Article::find($id);
-        if ($article === null) {
-            return response()->json(['error' => 'Article was not found.'], 404);
-        } else {
+        try {
             // Validate the incoming request
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
-                'imgUrl' => 'string',
+                'imgUrl' => 'url',
+                'category_id' => 'integer',
+                'tags' => 'array'
             ]);
 
+            // Find the article by ID
+            $article = Article::findOrFail($id);
+
+            // Update the article fields
             $article->title = $request->title;
+            $newSlug = str_replace(' ', '-', $article->title);
+
+            // Check if a different article has the same slug
+            if (DB::table('articles')->where('slug', $newSlug)->where('id', '<>', $id)->exists()) {
+                return response()->json(['error' => 'Another article with the same title already exists.'], 409);
+            }
+
+            $article->slug = $newSlug;
             $article->content = $request->content;
             $article->imgUrl = $request->imgUrl;
-            $article->save();
-            return response()->json(['message' => 'Article was updated successfully.'], 200);
+
+            if ($request->category_id != null) {
+                $article->category_id = $request->category_id;
+            }
+
+            // Check if a new image file was uploaded
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $cleanFilename = Str::slug($request->title) . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/images', $cleanFilename);
+                $article->imgUrl = '/storage/images/' . $cleanFilename;
+            }
+
+            // Attempt to update the article
+            if (!$article->save()) {
+                return response()->json(['error' => 'An error occurred while updating the article.'], 500);
+            } else {
+                if (isset($request->tags)) {
+                    // Update the tags associated with the article
+                    $tagIds = [];
+                    foreach ($request->tags as $tagName) {
+                        $tag = Tag::firstOrCreate(['title' => $tagName]);
+                        if ($tag !== null) {
+                            $tagIds[] = $tag->id;
+                        }
+                    }
+                    if (count($tagIds) > 0) {
+                        $article->tags()->sync($tagIds); // Sync the tags with the article
+                    }
+                }
+                return response()->json(['message' => 'Article was updated successfully.'], 200);
+            }
+
+            return response()->json($article, 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        } catch (\Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
