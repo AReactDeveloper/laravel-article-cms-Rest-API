@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::Post('login', [AuthController::class, 'login']);
+Route::apiResource('articles', ArticleController::class)->only(['index', 'show']);
 
 Route::middleware('auth:sanctum')->group(
     function () {

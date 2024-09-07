@@ -25,15 +25,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255'
-        ]);
-
         try {
-            $category = Category::create($validated);
-            return response()->json(['message' => $category + 'Category was created successfully.'], 201);
+            $validated = $request->validate([
+                'title' => 'required|string|max:255'
+            ]);
+
+            $newCategory = new Category();
+            if ($newCategory === null) {
+                return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
+            }
+
+            $newCategory->title = $validated['title'];
+            if (!$newCategory->save()) {
+                return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
+            }
+
+            return response()->json(['message' => 'Category created successfully.'], 201);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
         }
     }
 
@@ -81,12 +90,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        if ($category === null) {
-            return response()->json(['error' => 'Category was not found.'], 404);
-        } else {
+        try {
+            $category = Category::findOrFail($id);
             $category->delete();
             return response()->json(['message' => 'Category was deleted successfully.'], 204);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['error' => 'Category was not found.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred. when deleting this category.'], 500);
         }
     }
 }

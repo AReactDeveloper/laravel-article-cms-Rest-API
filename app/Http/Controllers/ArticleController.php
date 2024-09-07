@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Category;
 use App\Models\SiteInfo;
 use App\Models\Tag;
 use Illuminate\Database\QueryException;
@@ -134,9 +133,9 @@ class ArticleController extends Controller
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
-                'imgUrl' => 'url',
-                'category_id' => 'integer',
-                'tags' => 'array'
+                'imgUrl' => 'nullable|url',
+                'category_id' => 'nullable|integer',
+                'tags' => 'nullable|array'
             ]);
 
             // Find the article by ID
@@ -155,7 +154,7 @@ class ArticleController extends Controller
             $article->content = $request->content;
             $article->imgUrl = $request->imgUrl;
 
-            if ($request->category_id != null) {
+            if ($request->category_id) {
                 $article->category_id = $request->category_id;
             }
 

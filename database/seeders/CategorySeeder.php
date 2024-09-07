@@ -17,6 +17,7 @@ class CategorySeeder extends Seeder
         //
         // Insert dummy categories
         DB::table('categories')->insert([
+            ['title' => 'uncategorized'],
             ['title' => 'Technology'],
             ['title' => 'Health'],
             ['title' => 'Lifestyle'],

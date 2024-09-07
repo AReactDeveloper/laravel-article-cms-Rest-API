@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attachments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class AttachmentsController extends Controller
@@ -52,7 +53,7 @@ class AttachmentsController extends Controller
                 $image = $request->file('file');
                 $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Generate a clean filename
                 $image->storeAs('public/images/attachments/', $cleanFilename); // Store the image
-                $attachment->url = '/storage/images/attachments/' . $cleanFilename; // Set the image URL
+                $attachment->url = 'storage/images/attachments/' . $cleanFilename; // Set the image URL
             }
 
             $attachment->save();
@@ -79,16 +80,29 @@ class AttachmentsController extends Controller
 
     public function destroy($id)
     {
-        // Find the attachment by its ID
-        $attachment = Attachments::find($id);
+        try {
+            // Find the attachment by ID
+            $attachment = Attachments::find($id);
 
-        if ($attachment !== null) {
-            // Delete the attachment record from the database
-            $attachment->delete();
+            // Check if the attachment exists
+            if ($attachment === null) {
+                return response()->json(['error' => 'Attachment not found'], 404);
+            }
 
-            return response()->json(['message' => 'Attachment deleted successfully.'], 200);
-        } else {
-            return response()->json(['error' => 'Attachment not found'], 404);
+            // Get the file path based on the attachment's URL
+            $file_path = $attachment->url ? storage_path('app/public/' . $attachment->url) : null;
+            $file_path = str_replace('/storage', '', $attachment->url);
+
+            // Check if the file exists, then delete the file and attachment record
+            if ($file_path && File::exists($file_path)) {
+                File::delete($file_path);
+                $attachment->delete();
+                return response()->json(['message' => 'Attachment deleted successfully.'], 200);
+            } else {
+                return response()->json(['message' => 'File not found.'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => "An error occurred while deleting the attachment: " . $e->getMessage()], 500);
         }
     }
 }
