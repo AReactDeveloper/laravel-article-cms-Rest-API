@@ -40,7 +40,7 @@ class ArticleController extends Controller
 
             return response()->json($articles, 200);
         } catch (QueryException $e) { //custom errror for db query
-            return response()->json(['error' => "An error occurred while fetching articles"], 500);
+            return response()->json(['error' => $e . "An error occurred while fetching articles"], 500);
         }
     }
 
@@ -116,9 +116,11 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id): JsonResponse
+    public function show($slug): JsonResponse
     {
-        $article = Article::with('tags')->find($id);
+        //fetch article with a slug
+        $article = Article::with(['tags', 'category'])->where('slug', $slug)->first();
+
         if ($article === null) {
             return response()->json(['error' => 'Article not found'], 404);
         }
@@ -126,7 +128,7 @@ class ArticleController extends Controller
     }
 
 
-    public function update(Request $request, $id): JsonResponse
+    public function update(Request $request, $slug): JsonResponse
     {
         try {
             // Validate the incoming request
@@ -139,14 +141,14 @@ class ArticleController extends Controller
             ]);
 
             // Find the article by ID
-            $article = Article::findOrFail($id);
+            $article = Article::with('tags')->where('slug', $slug)->first();
 
             // Update the article fields
             $article->title = $request->title;
             $newSlug = str_replace(' ', '-', $article->title);
 
             // Check if a different article has the same slug
-            if (DB::table('articles')->where('slug', $newSlug)->where('id', '<>', $id)->exists()) {
+            if (DB::table('articles')->where('slug', $newSlug)->where('slug', '<>', $slug)->exists()) {
                 return response()->json(['error' => 'Another article with the same title already exists.'], 409);
             }
 
