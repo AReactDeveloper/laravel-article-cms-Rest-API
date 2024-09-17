@@ -21,7 +21,7 @@ class SiteInfoController extends Controller
     {
         //
         try {
-            $siteInfo = siteInfo::all();
+            $siteInfo = siteInfo::first();
             return response()->json($siteInfo, 200);
         } catch (\Exception $e) {
             report($e);
@@ -44,49 +44,34 @@ class SiteInfoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SiteInfo $siteInfo) {}
-
-    /**
      * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param string $setting
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $setting)
+    public function update(Request $request, string $setting)
     {
-        // Validate incoming request
         $request->validate([
-            'value' => ['required'], // Ensure 'value' is provided
+            'siteLogoOptions' => 'string|in:logo,logo_title,logo_title_description,title_description',
         ]);
-
-        // List of valid column names for security
-        $validColumns = ['sitefavicon', 'sitelogo', 'sitename', 'sitedescription', 'siteurl', 'siteadminemail', 'sitelanguage', 'sitestatus'];
-
-        // Check if $setting is a valid column name
-        if (in_array($setting, $validColumns)) {
-            try {
-                // Retrieve the model instance (you might need to adjust this query based on your requirements)
-                $siteInfo = SiteInfo::first(); // Or use other criteria to retrieve the specific record
-
-                if ($siteInfo) {
-                    // Dynamically update the column value
-                    $siteInfo->{$setting} = $request->value;
-                    $siteInfo->save(); // Save changes to the database
-
-                    // Return the updated model as a JSON response
-                    return response()->json([
-                        'message' => $siteInfo->$setting . ' - is your new ' . $setting . ' successfully'
-                    ], 200);
-                } else {
-                    // Handle case where no record was found
-                    return response()->json(['error' => 'Not Found'], 404);
-                }
-            } catch (\Exception $e) {
-                // Handle other errors
-                return response()->json(['error' => 'Internal Server Error'], 500);
+        try {
+            $siteInfo = SiteInfo::first();
+            if ($siteInfo === null) {
+                return response()->json(['error' => 'Site information not found'], 404);
             }
-        } else {
-            // Handle invalid column names
-            return response()->json(['error' => 'Invalid Setting'], 400);
+
+            $input = $request->all();
+            $siteInfo->siteLogoOptions = $input['siteLogoOptions'];
+            $siteInfo->update($input);
+            return response()->json('site info updated succufuly ' . $siteInfo, 200);
+        } catch (QueryException $e) {
+            report($e);
+            return response()->json(['error' => $e . 'Database error.'], 500);
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['error' => $e . 'An unexpected error occurred.'], 500);
         }
     }
 }

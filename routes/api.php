@@ -33,9 +33,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Protected routes for articles and full CRUD for other resources
     Route::apiResource('articles', ArticleController::class)->except(['index', 'show']);
+    Route::apiResource('settings', SiteInfoController::class)->except(['index', 'show']);
     Route::apiResource('categories', CategoryController::class)->except(['index', 'show']);
     Route::apiResource('tags', TagController::class)->except(['index', 'show']);
     Route::apiResource('pages', PageController::class)->except(['index', 'show']);
-    Route::apiResource('settings', SiteInfoController::class)->except(['index', 'show']);
     Route::apiResource('file', AttachmentsController::class)->except(['index', 'show']);
 });
