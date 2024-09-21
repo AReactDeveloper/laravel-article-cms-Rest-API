@@ -4,11 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'oldPassword' => 'required',
+            'newPassword' => 'required|min:8|regex:/[a-zA-Z]/|regex:/[0-9]/|regex:/[^\w]/',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' =>
+                $validator->getMessageBag()->first()
+            ], 400);
+        }
+
+        $user = $request->user();
+
+        if (!$user || !Hash::check($request->oldPassword, $user->password)) {
+            return response()->json(['error' => 'Old password is incorrect'], 400);
+        }
+
+        $user->password = Hash::make($request->newPassword);
+        $user->save();
+
+        return response()->json(['message' => 'Password changed successfully'], 200);
+    }
+
+
+
     public function getAuthUser()
     {
         try {
@@ -34,28 +64,20 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'confirmEmail' => 'required|same:email'
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->messages()], 400);
+            return response()->json([
+                'error' =>
+                $validator->getMessageBag()->first()
+            ], 400);
         }
 
-        try {
-            $user = $request->user();
-
-            if (!$user) {
-                return response()->json(['error' => 'User not authenticated'], 401);
-            }
-
-            $user->fill($request->only('email', 'password')); // Ensure password hashing if necessary
-            $user->save();
-
-            return response()->json(['message' => 'Profile Updated'], 200);
-        } catch (\Exception $e) {
-            Log::error('AuthController@updateUser: ' . $e->getMessage());
-            return response()->json(['error' => 'An error occurred'], 500);
-        }
+        $user = $request->user();
+        $user->email = $request->email;
+        $user->save();
+        return response()->json(['message' => 'User updated successfully'], 200);
     }
 
     public function login(Request $request)

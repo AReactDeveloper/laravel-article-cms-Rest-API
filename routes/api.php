@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // User routes
     Route::put('user', [AuthController::class, 'updateUser']);
     Route::get('user', [AuthController::class, 'getAuthUser']);
+    Route::post('/passwordChange', [AuthController::class, 'changePassword']);
     Route::post('logout', [AuthController::class, 'logout']);
 
     // Protected routes for articles and full CRUD for other resources

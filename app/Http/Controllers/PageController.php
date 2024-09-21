@@ -59,9 +59,9 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($slug)
     {
-        $page = Page::find($id);
+        $page = Page::where('slug', $slug)->first();
         if ($page === null) {
             return response()->json(['error' => 'Page not found'], 404);
         }
@@ -109,8 +109,9 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Page $page): JsonResponse
+    public function destroy($id): JsonResponse
     {
+        $page = Page::find($id);
         if ($page === null) {
             return response()->json(['error' => 'Page not found'], 404);
         }
