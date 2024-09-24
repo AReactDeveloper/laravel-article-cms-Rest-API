@@ -1,0 +1,11 @@
+service: laravel-api
+provider:
+  name: aws
+  runtime: php-8.0
+functions:
+  api:
+    handler: public/index.php
+    events:
+      - http:
+          path: /{any+}
+          method: any
