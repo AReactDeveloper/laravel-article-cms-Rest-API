@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ExecuteArtisanCommandController;
 
-Route::get('/run-db', ExecuteArtisanCommandController::class);
+Route::post('/run-db', ExecuteArtisanCommandController::class);
 
 
 
