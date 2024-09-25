@@ -45,6 +45,7 @@ Route::get('/test-db', function () {
         $database = DB::connection()->getDatabaseName();
         $host = $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS);
         $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        $tables = DB::select('SHOW TABLES');
 
         return response()->json([
             'status' => 'success',
@@ -53,6 +54,7 @@ Route::get('/test-db', function () {
                 'database' => $database,
                 'host' => $host,
                 'driver' => $driver,
+                'tables' => $tables
             ],
         ]);
     } catch (\Exception $e) {
