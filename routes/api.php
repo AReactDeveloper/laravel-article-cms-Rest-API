@@ -8,65 +8,11 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Artisan;
 
 
+use App\Http\Controllers\ExecuteArtisanCommandController;
 
-Route::get('/run-db', function () {
-    try {
-
-        // Run the migration command
-        Artisan::call('migrate', [
-            '--force' => true, // Use this in production to bypass confirmation
-        ]);
-
-        // Optionally, you can fetch the output
-        $output = Artisan::output();
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Migrations ran successfully!',
-            'output' => $output,
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Migration failed: ' . $e->getMessage(),
-        ], 500);
-    }
-});
-
-
-Route::get('/test-db', function () {
-    try {
-        // Attempt to get the database connection
-        $pdo = DB::connection()->getPdo();
-
-        // Get database connection details
-        $database = DB::connection()->getDatabaseName();
-        $host = $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS);
-        $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
-        $tables = DB::select('SHOW TABLES');
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Database connection is working!',
-            'details' => [
-                'database' => $database,
-                'host' => $host,
-                'driver' => $driver,
-                'tables' => $tables
-            ],
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Database connection failed: ' . $e->getMessage(),
-        ], 500);
-    }
-});
-
+Route::post('/run-db', ExecuteArtisanCommandController::class);
 
 
 
