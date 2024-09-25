@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/run-db', function () {
     try {
+
         // Run the migration command
         Artisan::call('migrate', [
             '--force' => true, // Use this in production to bypass confirmation
