@@ -14,9 +14,6 @@ use App\Http\Controllers\ExecuteArtisanCommandController;
 
 Route::post('/run-db', ExecuteArtisanCommandController::class);
 
-
-
-
 // Public routes
 Route::post('login', [AuthController::class, 'login']);
 
