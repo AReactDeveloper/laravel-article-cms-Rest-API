@@ -9,6 +9,25 @@ use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
+
+
+Route::get('/db-migrate', function () {
+    // Run the artisan command: migrate:fresh --seed
+    Artisan::call('migrate:fresh', [
+        '--seed' => true,
+        '--force' => true, // Ensure it runs in production without confirmation
+    ]);
+
+    // Get the output of the command (if needed)
+    $output = Artisan::output();
+
+    return response()->json([
+        'status' => 'success',
+        'output' => $output,
+    ]);
+});
+
 
 Route::get('/test-db', function () {
     try {
