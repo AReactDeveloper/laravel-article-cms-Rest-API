@@ -13,16 +13,29 @@ use Illuminate\Support\Facades\Artisan;
 
 
 Route::get('/db-migrate', function () {
-    // Run the artisan command: migrate:fresh --seed
-    Artisan::call('migrate:fresh', [
-        '--seed' => true,
-        '--force' => true, // Ensure it runs in production without confirmation
-    ]);
+    try {
+        // Run the artisan command: migrate:fresh --seed
+        Artisan::call('migrate:fresh', [
+            '--seed' => true,
+            '--force' => true, // Ensure it runs in production without confirmation
+        ]);
 
-    return response()->json([
-        'status' => 'success',
-        'message' => 'Database migrated successfully!',
-    ]);
+        // Get the output of the command
+        $output = Artisan::output();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Database migrated successfully!',
+            'output' => $output,
+        ]);
+    } catch (\Exception $e) {
+        // Handle any exceptions and return a meaningful error message
+        return response()->json([
+            'status' => 'error',
+            'message' => 'An error occurred during migration.',
+            'error' => $e->getMessage(),
+        ], 500);
+    }
 });
 
 
