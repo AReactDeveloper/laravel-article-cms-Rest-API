@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/db-migrate', function () {
     try {
         // Run the artisan command: migrate:fresh --seed
-        Artisan::call('migrate:fresh', [
-            '--seed' => true,
-            '--force' => true, // Ensure it runs in production without confirmation
-        ]);
+        Artisan::call('migrate');
 
         // Get the output of the command
         $output = Artisan::output();
