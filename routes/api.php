@@ -12,12 +12,31 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/test-db', function () {
     try {
-        DB::connection()->getPdo();
-        return response()->json(['status' => 'success', 'message' => 'Database connection is working!']);
+        // Attempt to get the database connection
+        $pdo = DB::connection()->getPdo();
+
+        // Get database connection details
+        $database = DB::connection()->getDatabaseName();
+        $host = $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS);
+        $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Database connection is working!',
+            'details' => [
+                'database' => $database,
+                'host' => $host,
+                'driver' => $driver,
+            ],
+        ]);
     } catch (\Exception $e) {
-        return response()->json(['status' => 'error', 'message' => 'Database connection failed: ' . $e->getMessage()], 500);
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Database connection failed: ' . $e->getMessage(),
+        ], 500);
     }
 });
+
 
 
 
