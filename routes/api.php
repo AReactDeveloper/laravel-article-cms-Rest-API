@@ -19,12 +19,9 @@ Route::get('/db-migrate', function () {
         '--force' => true, // Ensure it runs in production without confirmation
     ]);
 
-    // Get the output of the command (if needed)
-    $output = Artisan::output();
-
     return response()->json([
         'status' => 'success',
-        'output' => $output,
+        'message' => 'Database migrated successfully!',
     ]);
 });
 
