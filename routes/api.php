@@ -10,10 +10,14 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 
-
-use App\Http\Controllers\ExecuteArtisanCommandController;
-
-Route::post('/run-db', ExecuteArtisanCommandController::class);
+Route::get('/test-db', function () {
+    try {
+        DB::connection()->getPdo();
+        return "Database connection successful!";
+    } catch (\Exception $e) {
+        return "Database connection failed: " . $e->getMessage();
+    }
+});
 
 // Public routes
 Route::post('login', [AuthController::class, 'login']);
