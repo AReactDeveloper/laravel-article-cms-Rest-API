@@ -10,6 +10,7 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 
+
 use App\Http\Controllers\ExecuteArtisanCommandController;
 
 Route::post('/run-db', ExecuteArtisanCommandController::class);
