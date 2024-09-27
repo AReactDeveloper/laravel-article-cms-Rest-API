@@ -8,17 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 
-
-Route::get('/test-db', function () {
-    try {
-        DB::connection()->getPdo();
-        return "Database connection successful!";
-    } catch (\Exception $e) {
-        return "Database connection failed: " . $e->getMessage();
-    }
-});
 
 // Public routes
 Route::post('login', [AuthController::class, 'login']);
