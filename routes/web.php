@@ -6,5 +6,5 @@ use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 //Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
 Route::get('/', function () {
-    phpinfo();
+    return 'hello world';
 });
