@@ -15,9 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(CorsMiddleware::class);
         $middleware->statefulApi();
-        //$middleware->api(prepend: [
-        //    \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        //]);
+        $middleware->api(prepend: [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // Custom exception handling can be added here
