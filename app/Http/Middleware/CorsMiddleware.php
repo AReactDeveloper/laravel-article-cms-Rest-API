@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request; // Ensure you're using this
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class CorsMiddleware
 {
@@ -16,6 +18,11 @@ class CorsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        // Log the request origin
+        $origin = $request->headers->get('Origin');
+        Log::info('Request Origin: ' . $origin);
+
+        // Continue processing the request
         return $next($request)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
