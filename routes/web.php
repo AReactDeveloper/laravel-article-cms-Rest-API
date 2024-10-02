@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
@@ -14,6 +15,8 @@ Route::get('/test-db', function () {
 });
 
 
-Route::get('/', function () {
-    return 'hello world';
+Route::get('/', function (Request  $request) {
+    $origin = $request->headers->get('Origin');
+
+    return $origin;
 });
