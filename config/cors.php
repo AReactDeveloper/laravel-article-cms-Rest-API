@@ -45,7 +45,7 @@ return [
     /*
      * Sets the Access-Control-Expose-Headers response header.
      */
-    'exposed_headers' => true,
+    'exposed_headers' => ['*'], // Replace with actual headers you want to expose
 
     /*
      * Sets the Access-Control-Max-Age response header.
