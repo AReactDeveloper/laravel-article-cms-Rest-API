@@ -29,9 +29,15 @@ class ArticleController extends Controller
             //$postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
             // Eager load the tags relationship for all articles
             //get the latest created one
-            $articles = Article::orderBy('created_at', 'desc')->with(['category', 'tags' => function ($query) {
-                $query->withcount('articles')->get(); // Get Post count from each category and tag
-            }])->get();
+            $articles = Article::orderBy('created_at', 'desc')
+            ->with([
+                'category',
+                'tags' => function ($query) {
+                    $query->withCount('articles'); // Count how many articles are associated with each tag
+                },
+                'comments' // Eager load comments for each article
+            ])
+            ->get();
 
 
             if ($articles === null) {
