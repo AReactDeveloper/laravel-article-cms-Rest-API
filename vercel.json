@@ -26,10 +26,10 @@
         }
     ],
     "env": {
-        "APP_NAME": "api.treckstar.net",
+        "APP_NAME": "BlogCMSApi",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://api.treckstar.net",
+        "APP_URL": "https://larablogsystem.vercel.app/",
         "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
