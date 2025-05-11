@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Public routes
-Route::get('/sanctum/csrf-cookie', function () {
-    return response()->json(['message' => 'CSRF cookie set']);
-});
+
 
 Route::post('login', [AuthController::class, 'login']);
 
