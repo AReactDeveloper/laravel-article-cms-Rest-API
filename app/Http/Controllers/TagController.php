@@ -71,11 +71,6 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        // Check if the tag exists
-        if (!$tag) {
-            return response()->json(['error' => 'Tag not found'], 404);
-        }
-
         // Validate the incoming request
         $request->validate([
             'title' => 'required|string|max:255',
@@ -94,11 +89,6 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        // Check if the tag exists
-        if ($tag === null) {
-            return response()->json(['error' => 'Tag not found'], 404);
-        }
-
         try {
             // Delete the tag
             $tag->delete();

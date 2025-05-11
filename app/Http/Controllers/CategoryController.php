@@ -23,35 +23,34 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-        try {
-            $validated = $request->validate([
-                'title' => 'required|string|max:255'
-            ]);
+        // Validate the incoming request
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
 
-            $newCategory = new Category();
-            if ($newCategory === null) {
-                return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
-            }
+        // Create a new Category instance
+        $newCategory = Category::create([
+            'title' => $validated['title'],
+        ]);
 
-            $newCategory->title = $validated['title'];
-            if (!$newCategory->save()) {
-                return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
-            }
-
-            return response()->json(['message' => 'Category created successfully.'], 201);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'An unexpected error occurred. when creating new category.'], 500);
+        // If the category is created successfully
+        if (!$newCategory) {
+            return response()->json(['error' => 'An unexpected error occurred while creating the category.'], 500);
         }
+
+        return response()->json(['message' => 'Category created successfully.'], 201);
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show($id)
     {
-        $category = Category::find($id);
+        $category = Category::find($id)->with('articles')->get();
         if ($category === null) {
             return response()->json(['error' => 'Category not found'], 404);
         }
@@ -69,20 +68,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        if ($category === null) {
-            return response()->json(['error' => 'Category not found'], 404);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        if (!$category->update($validated)) {
+            return response()->json(['error' => 'Failed to update category.'], 500);
         }
 
-        try {
-            $validated = $request->validate([
-                'title' => 'required|string|max:255'
-            ]);
+        return response()->json(['message' => 'Category was updated successfully.'], 200);
 
-            $category->update($validated);
-            return response()->json(['message' => 'Category was updated successfully.'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'An unexpected error occurred. when updating this category.'], 500);
-        }
     }
 
     /**

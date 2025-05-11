@@ -39,13 +39,11 @@ class AttachmentsController extends Controller
     public function store(Request $request)
     {
         try {
-
-            $attachment = new Attachments;
-
             $request->validate([
-                'file' => 'file|mimes:jpg,jpeg,png,gif|max:2048'
+                'file' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048', // Added 'required' for better validation
             ]);
 
+            // Create new attachment instance
             $attachment = new Attachments();
 
             // Check if an image file was uploaded
@@ -53,16 +51,22 @@ class AttachmentsController extends Controller
                 $image = $request->file('file');
                 $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Generate a clean filename
                 $image->storeAs('public/images/attachments/', $cleanFilename); // Store the image
-                $attachment->url = 'storage/images/attachments/' . $cleanFilename; // Set the image URL
+
+                // Set the image URL (adjust the path based on your actual storage configuration)
+                $attachment->url = 'storage/images/attachments/' . $cleanFilename; 
             }
 
+            // Save the attachment
             $attachment->save();
 
-            return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES); //skipping anoying json slashes
+            // Return success response
+            return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES); // Avoid slashes in JSON response
         } catch (\Exception $e) {
-            return response()->json(['message' => $e . 'An error occurred while saving the attachment: ' . $e->getMessage()], 500);
+            // Handle errors and return user-friendly message
+            return response()->json(['message' => 'An error occurred while saving the attachment.'], 500);
         }
     }
+
 
 
     /**

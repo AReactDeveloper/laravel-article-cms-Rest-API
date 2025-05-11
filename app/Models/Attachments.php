@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attachments extends Model
 {
+
+
     use HasFactory;
 
     protected $fillable = [
+        'url',
         'path',
         'filename',
         'mime_type',
