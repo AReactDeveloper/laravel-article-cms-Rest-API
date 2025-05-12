@@ -2,52 +2,33 @@
     "version": 2,
     "framework": null,
     "functions": {
-      "api/index.php": {
-        "runtime": "vercel-php@0.7.0"
-      }
+        "api/*.php": { 
+          "runtime": "vercel-php@0.7.1" 
+        }
     },
-    "rewrites": [
+    "routes": [
       {
-        "source": "/(favicon\\.ico|robots\\.txt)",
-        "destination": "/public/$1"
-      },
-      {
-        "source": "/build/:path*",
-        "destination": "/public/build/:path*"
-      },
-      {
-        "source": "/:path*",
-        "destination": "/api/index.php"
-      }
-    ],
-    "headers": [
-      {
-        "source": "/api/(.*)",
-        "headers": [
-          { "key": "Access-Control-Allow-Credentials", "value": "true" },
-          { "key": "Access-Control-Allow-Origin", "value": "*" },
-          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-          { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
-        ]
-      }
+            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
+            "dest": "/public/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
     ],
     "env": {
-      "APP_NAME": "BlogCMSApi",
-      "APP_ENV": "production",
-      "APP_DEBUG": "false",
-      "APP_URL": "https://larablogsystem.vercel.app/",
-      "VERCEL_DEMO_MODE": "true",
-      "APP_CONFIG_CACHE": "/tmp/config.php",
-      "APP_EVENTS_CACHE": "/tmp/events.php",
-      "APP_PACKAGES_CACHE": "/tmp/packages.php",
-      "APP_ROUTES_CACHE": "/tmp/routes.php",
-      "APP_SERVICES_CACHE": "/tmp/services.php",
-      "CACHE_DRIVER": "array",
-      "LOG_CHANNEL": "stderr",
-      "SESSION_DRIVER": "array",
-      "VIEW_COMPILED_PATH": "/tmp/views",
-      "SSR_TEMP_PATH": "/tmp/ssr",
-      "NODE_PATH": "node"
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://laravel-article-cms-rest-api.vercel.app/",
+
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie"
     }
-  }
-  
+}
