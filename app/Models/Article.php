@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Category;
 use App\Models\Tag;
-use App\Models\Comment;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Article extends Model
@@ -27,10 +25,5 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    // Define the many-to-many relationship with Tag
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
     use HasFactory;
 }

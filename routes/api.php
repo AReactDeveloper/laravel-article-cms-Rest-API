@@ -7,7 +7,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +23,6 @@ Route::apiResource('tags', TagController::class)->only(['index', 'show']);
 Route::apiResource('pages', PageController::class)->only(['index', 'show']);
 Route::apiResource('settings', SiteInfoController::class)->only(['index', 'show']);
 Route::apiResource('file', AttachmentsController::class)->only(['index', 'show']);
-Route::apiResource('comment', CommentController::class);
 
 
 // Protected routes (require authentication)
