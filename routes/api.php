@@ -9,9 +9,9 @@ use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-
-// Public routes
-
+Route::get('/sanctum/csrf-cookie', function () {
+    return response()->json(['message' => 'CSRF token set']);
+});
 
 Route::post('login', [AuthController::class, 'login']);
 
