@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libonig-dev \
     libxml2-dev \
-    libpq-dev \   # Added PostgreSQL dependencies
+    libpq-dev \
     zip \
     unzip \
     curl \
