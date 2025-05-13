@@ -1,10 +1,32 @@
 FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y libssl-dev
-
+# Set working directory
 WORKDIR /var/www
-COPY . .
 
-RUN composer install
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpng-dev \
+    libjpeg-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    curl \
+    git \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
-CMD ["php-fpm"]
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy existing application directory contents
+COPY . /var/www
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www
+
+# Start the PHP-FPM server
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
