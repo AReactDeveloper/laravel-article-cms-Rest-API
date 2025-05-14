@@ -19,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
         $middleware->trustProxies(at: '*');
+        $middleware->validateCsrfTokens(except: [
+            '/api/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // Custom exception handling can be added here
