@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TagController;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 
 Route::apiResource('articles', ArticleController::class)->only(['index', 'show']);
+Route::apiResource('comment', CommentController::class);
 
 // Public routes for other resources
 Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);

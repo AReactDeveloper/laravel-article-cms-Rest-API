@@ -23,16 +23,9 @@ class ArticleController extends Controller
     public function index(): JsonResponse
     {
         try {
-            //load posts per page from site settings
-            //this can be changed from the front end admin dashboard
-            // ?? 10 provides default value if post per page is not set
-            //$postPerPage = SiteInfo::value('sitePostsPerPage') ?? 10;
-            // Eager load the tags relationship for all articles
-            //get the latest created one
-            $articles = Article::orderBy('created_at', 'desc')->with(['category', 'tags' => function ($query) {
-                $query->withcount('articles')->get(); // Get Post count from each category and tag
-            }])->get();
-
+            $articles = Article::orderBy('created_at', 'desc')
+            ->with(['category', 'tags','comments'])
+            ->get();
 
             if ($articles === null) {
                 return response()->json(['error' => 'No article was found , create one today'], 404);
