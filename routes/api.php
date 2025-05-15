@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 
 Route::apiResource('articles', ArticleController::class)->only(['index', 'show']);
-Route::apiResource('comment', CommentController::class);
+Route::apiResource('comment', CommentController::class)->only(['store', 'update','destroy']);
 
 // Public routes for other resources
 Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
