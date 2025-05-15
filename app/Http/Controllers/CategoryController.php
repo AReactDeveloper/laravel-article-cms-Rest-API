@@ -90,7 +90,7 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->delete();
-            return response()->json(['message' => 'Category was deleted successfully.'], 204);
+            return response()->json(['message' => 'Category was deleted successfully.'], 200);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json(['error' => 'Category was not found.'], 404);
         } catch (\Exception $e) {
