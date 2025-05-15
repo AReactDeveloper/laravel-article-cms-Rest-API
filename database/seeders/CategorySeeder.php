@@ -16,12 +16,12 @@ class CategorySeeder extends Seeder
         //
         // Insert dummy categories
         DB::table('categories')->insert([
-            ['title' => 'uncategorized'],
-            ['title' => 'Technology'],
-            ['title' => 'Health'],
-            ['title' => 'Lifestyle'],
-            ['title' => 'Education'],
-            ['title' => 'Travel'],
+            ['title' => 'uncategorized','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'Technology','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'Health','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'Lifestyle','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'Education','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'Travel','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
         ]);
     }
 }

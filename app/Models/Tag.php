@@ -10,7 +10,7 @@ use App\Models\Article;
 
 class Tag extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title','description'];
 
     public function articles(): BelongsToMany
     {

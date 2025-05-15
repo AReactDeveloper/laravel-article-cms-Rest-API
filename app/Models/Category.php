@@ -9,7 +9,7 @@ use App\Models\Article;
 
 class Category extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title','description'];
 
     public function articles():HasMany{
         return $this->HasMany(Article::class);

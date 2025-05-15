@@ -14,13 +14,12 @@ class TagsSeeder extends Seeder
     {
         //
         DB::table('tags')->insert([
-            ['title' => 'html'],
-            ['title' => 'css'],
-            ['title' => 'js'],
-            ['title' => 'php'],
-            ['title' => 'python'],
-            ['title' => 'django'],
-            ['title' => 'laravel']
+            ['title' => 'html','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'css','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'js','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'php','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'python','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
+            ['title' => 'django','description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'],
         ]);
     }
 }

@@ -32,7 +32,8 @@ class TagController extends Controller
     {
         //
         $validated = $request->validate([
-            'title' => 'required|string|max:255'
+            'title' => 'required|string|max:255',
+            'description'=>'string'
         ]);
 
         $tag = Tag::create($validated);

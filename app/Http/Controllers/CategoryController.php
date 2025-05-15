@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id)->with('articles')->get();
+        $category = Category::with('articles')->find($id);
         if ($category === null) {
             return response()->json(['error' => 'Category not found'], 404);
         }
@@ -70,7 +70,8 @@ class CategoryController extends Controller
     {
 
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description'=>'string'
         ]);
 
         if (!$category->update($validated)) {

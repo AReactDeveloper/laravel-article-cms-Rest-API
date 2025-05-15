@@ -23,10 +23,7 @@ class AttachmentsController extends Controller
                 return response()->json(['message' => 'No attachments found'], 404);
             }
 
-            return response()->json([
-                'success' => true,
-                'url' => $attachments,
-            ]);
+            return  $attachments;
         } catch (\Exception $e) {
             return response()->json(['message' => 'An error occurred while fetching attachments'], 500);
         }
