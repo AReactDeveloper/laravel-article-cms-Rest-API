@@ -39,8 +39,14 @@ class AttachmentsController extends Controller
     public function store(Request $request)
     {
         try {
-            $request->validate([
-                'file' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048', // Added 'required' for better validation
+            // Validate request with detailed error messages
+            $validated = $request->validate([
+                'file' => [
+                    'required',
+                    'file',
+                    'mimes:jpg,jpeg,png,gif',
+                    'max:2048', // Max size in kilobytes
+                ],
             ]);
 
             // Create new attachment instance
@@ -49,23 +55,33 @@ class AttachmentsController extends Controller
             // Check if an image file was uploaded
             if ($request->hasFile('file')) {
                 $image = $request->file('file');
-                $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Generate a clean filename
-                $image->storeAs('public/images/attachments/', $cleanFilename); // Store the image
+                $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Clean filename
+                $image->storeAs('public/images/attachments/', $cleanFilename); // Store file
 
-                // Set the image URL (adjust the path based on your actual storage configuration)
-                $attachment->url = 'storage/images/attachments/' . $cleanFilename; 
+                // Set URL (adjust as needed)
+                $attachment->url = 'storage/images/attachments/' . $cleanFilename;
             }
 
-            // Save the attachment
             $attachment->save();
 
-            // Return success response
-            return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES); // Avoid slashes in JSON response
+            return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Return detailed validation errors
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => $e->errors(),
+            ], 422);
+
         } catch (\Exception $e) {
-            // Handle errors and return user-friendly message
-            return response()->json(['message' => 'An error occurred while saving the attachment.'], 500);
+            // Return generic error with internal message (safe in dev, redact in prod)
+            return response()->json([
+                'message' => 'An error occurred while saving the attachment.',
+                'error' => $e->getMessage(), // Comment this line out in production
+            ], 500);
         }
     }
+
 
 
 
