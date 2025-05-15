@@ -39,27 +39,26 @@ class AttachmentsController extends Controller
     public function store(Request $request)
     {
         try {
-            // Validate request with detailed error messages
             $validated = $request->validate([
                 'file' => [
                     'required',
                     'file',
                     'mimes:jpg,jpeg,png,gif',
-                    'max:2048', // Max size in kilobytes
+                    'max:2048',
                 ],
             ]);
 
-            // Create new attachment instance
             $attachment = new Attachments();
 
-            // Check if an image file was uploaded
             if ($request->hasFile('file')) {
                 $image = $request->file('file');
-                $cleanFilename = 'image-' . time() . '.' . $image->extension(); // Clean filename
-                $image->storeAs('public/images/attachments/', $cleanFilename); // Store file
+                $cleanFilename = 'image-' . time() . '.' . $image->extension();
 
-                // Set URL (adjust as needed)
-                $attachment->url = 'storage/images/attachments/' . $cleanFilename;
+                // Store directly in public folder (no symlink needed)
+                $image->move(public_path('images/attachments'), $cleanFilename);
+
+                // Use full absolute URL
+                $attachment->url = url('images/attachments/' . $cleanFilename);
             }
 
             $attachment->save();
@@ -67,17 +66,15 @@ class AttachmentsController extends Controller
             return response()->json($attachment, 200, [], JSON_UNESCAPED_SLASHES);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Return detailed validation errors
             return response()->json([
                 'message' => 'Validation failed.',
                 'errors' => $e->errors(),
             ], 422);
 
         } catch (\Exception $e) {
-            // Return generic error with internal message (safe in dev, redact in prod)
             return response()->json([
                 'message' => 'An error occurred while saving the attachment.',
-                'error' => $e->getMessage(), // Comment this line out in production
+                'error' => $e->getMessage(),
             ], 500);
         }
     }
