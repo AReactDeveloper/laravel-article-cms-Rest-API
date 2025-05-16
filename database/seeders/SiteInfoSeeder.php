@@ -15,6 +15,7 @@ class SiteInfoSeeder extends Seeder
         //
         DB::table('site_infos')->insert([
             'siteName' => 'LeReBlog',
+            'siteTheme' => 'default',
             'siteDescription' => 'Lorem ipsum dolor sit amet consectetur ',
             'siteLogo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/2048px-Mercedes-Logo.svg.png',
             'siteFavicon' => 'https://cdn.iconscout.com/icon/free/png-256/free-mercedes-8-202855.png',

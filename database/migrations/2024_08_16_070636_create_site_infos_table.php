@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('siteFavicon')->nullable();
             $table->string('siteLogo')->nullable();
+            $table->string('siteTheme')->default('default');
             $table->integer('sitePostsPerPage')->default(10)->nullable();
             $table->string('siteName')->default('blogName')->nullable();
             $table->string('siteDescription')->default('Lorem ipsum dolor sit amet consectetur adipisicing elit.')->nullable();

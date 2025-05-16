@@ -14,6 +14,7 @@ class SiteInfo extends Model
         'siteLogo',
         'sitePostsPerPage',
         'siteName',
+        'siteTheme',
         'siteDescription',
         'siteUrl',
         'siteAdminEmail',
