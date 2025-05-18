@@ -1,9 +1,10 @@
+# Use official PHP 8.2 FPM base image
 FROM php:8.2-fpm
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /var/www
 
-# Install dependencies
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
@@ -15,22 +16,24 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     git \
-    && docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd
+    && docker-php-ext-configure gd --with-jpeg \
+    && docker-php-ext-install -j$(nproc) pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
+# Copy Composer binary from official Composer image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy existing application directory contents
+# Copy application code
 COPY . /var/www
 
-# Install PHP dependencies
+# Install PHP dependencies via Composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Set permissions
+# Set ownership of the project files to www-data user/group
 RUN chown -R www-data:www-data /var/www
 
-# Expose port (make sure this matches your configuration in Railway)
+# Expose port 8080 for artisan serve
 EXPOSE 8080
 
-# Start the PHP-FPM server
+# Start the Laravel development server using artisan
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
