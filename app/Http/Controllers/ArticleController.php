@@ -46,6 +46,7 @@ class ArticleController extends Controller
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
+                'excerpt' => 'string|min:3',
                 'imgUrl' => 'url',
                 'category_id' => 'integer',
                 'tags' => 'array'
@@ -68,6 +69,7 @@ class ArticleController extends Controller
 
             $article->slug = $newSlug;
             $article->content = $request->content;
+            $article->excerpt = $request->excerpt;
             $article->imgUrl = $request->imgUrl;
             $article->category_id = $request->category_id;
 

@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'content', 'imgUrl', 'category_id'];
+    protected $fillable = ['title', 'content','excerpt', 'imgUrl', 'category_id'];
 
     public function category(): BelongsTo
     {

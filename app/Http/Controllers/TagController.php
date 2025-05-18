@@ -43,19 +43,17 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($title)
     {
-        // Check if the tag exists
-        $tag = Tag::find($id);
+        $tag = Tag::with('articles')->where('title', $title)->first();
         if (!$tag) {
-            return response()->json(['error' => 'Tag not found'], 404);
+            return response()->json(['error' => 'Category not found'], 404);
         }
 
-        // Return the tag
         try {
             return response()->json($tag);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);
         }
     }
 

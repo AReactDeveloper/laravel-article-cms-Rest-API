@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -31,6 +32,8 @@ class CategoryController extends Controller
             'title' => 'required|string|max:255',
         ]);
 
+        $validated['title'] = Str::lower($request->title);
+
         // Create a new Category instance
         $newCategory = Category::create([
             'title' => $validated['title'],
@@ -48,9 +51,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($title)
     {
-        $category = Category::with('articles')->find($id);
+        $category = Category::with('articles')->where('title', $title)->first();
         if ($category === null) {
             return response()->json(['error' => 'Category not found'], 404);
         }

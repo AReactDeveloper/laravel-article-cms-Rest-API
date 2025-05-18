@@ -32,26 +32,9 @@ class ArticleSeeder extends Seeder
             $articleId = DB::table('articles')->insertGetId([
                 'title' => "Article Title $i",
                 'slug' => $slug,
-                'content' => '{
-  "time": 1633046456753,
-  "blocks": [
-    {
-      "type": "header",
-      "data": {
-        "text": "Welcome to Editor.js",
-        "level": 1
-      }
-    },
-    {
-      "type": "paragraph",
-      "data": {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit..."
-      }
-    }
-  ],
-  "version": "2.22.2"
-}',
-                'imgUrl' => 'https://picsum.photos/id/' . ($i + rand(0, 100)) . '/150/150',
+                'content' => 'hello world',
+                'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+                'imgUrl' => 'https://picsum.photos/id/' . ($i + rand(0, 100)) . '/200/200',
                 'category_id' => $categoryIds[array_rand($categoryIds)],
                 'created_at' => now(),
                 'updated_at' => now(),
