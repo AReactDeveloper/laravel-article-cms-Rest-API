@@ -114,8 +114,14 @@ class ArticleController extends Controller
     public function show($slug): JsonResponse
     {
         //fetch article with a slug
-        $article = Article::with(['tags', 'category'])->where('slug', $slug)->first();
-
+        $article = Article::select('id', 'content' , 'imgUrl' , 'title', 'slug', 'category_id', 'created_at' )
+        ->with([
+            'tags:id,title',
+            'category:id,title',
+            'comments'
+        ])
+        ->where('slug', $slug)
+        ->first();
         if ($article === null) {
             return response()->json(['error' => 'Article not found'], 404);
         }
