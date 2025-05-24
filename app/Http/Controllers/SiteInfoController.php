@@ -74,4 +74,5 @@ class SiteInfoController extends Controller
             return response()->json(['error' => $e . 'An unexpected error occurred.'], 500);
         }
     }
+
 }

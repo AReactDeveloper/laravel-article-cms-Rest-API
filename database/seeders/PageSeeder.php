@@ -18,49 +18,7 @@ class PageSeeder extends Seeder
             DB::table('pages')->insert([
                 'title' => 'Page ' . $index,
                 'slug' => 'page-' . $index,
-                'content' => '
-                {
-  "time": 1633046456753,
-  "blocks": [
-    {
-      "type": "header",
-      "data": {
-        "text": "Welcome to Editor.js",
-        "level": 1
-      }
-    },
-    {
-      "type": "paragraph",
-      "data": {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non voluptate iure sunt ducimus dicta enim deleniti atque sapiente consequuntur minima id laboriosam, magnam facere vitae.."
-      }
-    },
-    {
-      "type": "list",
-      "data": {
-        "style": "unordered",
-        "items": [
-          "Clean JSON output",
-          "Block-based structure",
-          "Easy to integrate"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "data": {
-        "file": {
-          "url": "https://picsum.photos/200/300"
-        },
-        "caption": "An example image",
-        "stretched": false,
-        "withBorder": true,
-        "withBackground": false
-      }
-    }
-  ],
-  "version": "2.22.2"
-}',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
