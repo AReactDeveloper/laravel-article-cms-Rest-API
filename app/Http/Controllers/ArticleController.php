@@ -55,7 +55,7 @@ class ArticleController extends Controller
             // Create a new Article instance
             $article = new Article();
             $article->title = $request->title;
-            $newSlug = str_replace(' ', '-', $article->title);
+            $newSlug = strtolower(str_replace(' ', '-', $article->title));
 
             // The 'slug' field must be unique to avoid conflicts when accessing content via URLs.
             // One solution is to dynamically generate a unique slug if the provided slug already exists in the database.
