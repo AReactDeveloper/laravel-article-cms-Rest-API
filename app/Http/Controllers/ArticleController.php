@@ -46,10 +46,10 @@ class ArticleController extends Controller
             $request->validate([
                 'title' => 'required|string|min:3|max:255',
                 'content' => 'required|string|min:3',
-                'excerpt' => 'string|min:3',
-                'imgUrl' => 'url',
-                'category_id' => 'integer',
-                'tags' => 'array'
+                'excerpt' => 'nullable|string|min:3',
+                'imgUrl' => 'nullable|url',
+                'category_id' => 'nullable|integer',
+                'tags' => 'nullable|array',
             ]);
 
             // Create a new Article instance
@@ -114,7 +114,7 @@ class ArticleController extends Controller
     public function show($slug): JsonResponse
     {
         //fetch article with a slug
-        $article = Article::select('id', 'content' , 'imgUrl' , 'title', 'slug', 'category_id', 'created_at' )
+        $article = Article::select('*')
         ->with([
             'tags:id,title',
             'category:id,title',
