@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         try {
-            $categories = Category::withCount('articles')->with('articles')->get();
+            $categories = Category::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
             return response()->json($categories);
         } catch (\Exception $e) {
             return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);

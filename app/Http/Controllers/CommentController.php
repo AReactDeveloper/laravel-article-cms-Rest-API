@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function index(){
+        $comments = Comment::with(['article:id,title,slug'])->get();
+        return $comments;
+    }
 
     /**
      * Store a newly created resource in storage.

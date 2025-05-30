@@ -113,7 +113,8 @@ class AttachmentsController extends Controller
                 $attachment->delete();
                 return response()->json(['message' => 'Attachment deleted successfully.'], 200);
             } else {
-                return response()->json(['message' => 'File not found.'], 404);
+                $attachment->delete();
+                return response()->json(['message' => 'File not found. on disk delete from db'], 200);
             }
         } catch (\Exception $e) {
             return response()->json(['message' => "An error occurred while deleting the attachment: " . $e->getMessage()], 500);

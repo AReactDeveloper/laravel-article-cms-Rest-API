@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 
 Route::apiResource('articles', ArticleController::class)->only(['index', 'show']);
-Route::apiResource('comment', CommentController::class)->only(['store', 'update','destroy']);
+Route::apiResource('comment', CommentController::class);
 
 // Public routes for other resources
 Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
@@ -29,7 +29,7 @@ Route::apiResource('file', AttachmentsController::class)->only(['index', 'show']
 Route::middleware('auth:sanctum')->group(function () {
     // User routes
     Route::put('user', [AuthController::class, 'updateUser']);
-    Route::get('user', [AuthController::class, 'getAuthUser']);
+    Route::get('us er', [AuthController::class, 'getAuthUser']);
     Route::post('/passwordChange', [AuthController::class, 'changePassword']);
     Route::post('logout', [AuthController::class, 'logout']);
 
