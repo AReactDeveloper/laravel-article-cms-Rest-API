@@ -30,6 +30,7 @@ class CategoryController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
         $validated['title'] = Str::lower($request->title);
@@ -37,6 +38,7 @@ class CategoryController extends Controller
         // Create a new Category instance
         $newCategory = Category::create([
             'title' => $validated['title'],
+            'description'=> $validated['description']
         ]);
 
         // If the category is created successfully
