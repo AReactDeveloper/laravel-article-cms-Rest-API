@@ -120,25 +120,24 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request)
-    {
-        try {
-            $user = $request->user();
+{
+    try {
+        $user = $request->user();
 
-            if ($user !== null) {
-                $user->tokens()->delete(); // Delete all tokens
-            }
-
-            return response()->json(['message' => 'Logged out'], 204); // No content
-        } catch (\Throwable $e) {
-            Log::error('AuthController@logout: ' . $e->getMessage());
-
-            if ($e instanceof \Error) {
-                // If it's a fatal error, make sure to return a 500 status code
-                return response()->json(['error' => 'An error occurred'], 500);
-            }
-
-            // For other exceptions, return the error message
-            return response()->json(['error' => $e->getMessage()], 400);
+        if ($user !== null) {
+            $user->tokens()->delete(); // Delete all tokens
         }
+    } catch (\Throwable $e) {
+        \Log::error('AuthController@logout: ' . $e->getMessage());
+
+        if ($e instanceof \Error) {
+            // Fatal error, respond 500
+            return response()->json(['error' => 'An error occurred'], 500);
+        }
+
+        // Other exceptions, respond 400 with message
+        return response()->json(['error' => $e->getMessage()], 400);
     }
+}
+
 }
