@@ -53,9 +53,6 @@ class SiteInfoController extends Controller
      */
     public function update(Request $request, string $setting)
     {
-        $request->validate([
-            'siteLogoOptions' => 'string|in:logo,logo_title,logo_title_description,title_description',
-        ]);
         try {
             $siteInfo = SiteInfo::first();
             if ($siteInfo === null) {
@@ -63,7 +60,6 @@ class SiteInfoController extends Controller
             }
 
             $input = $request->all();
-            $siteInfo->siteLogoOptions = $input['siteLogoOptions'];
             $siteInfo->update($input);
             return response()->json('site info updated succufuly ' . $siteInfo, 200);
         } catch (QueryException $e) {

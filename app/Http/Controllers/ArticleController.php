@@ -155,6 +155,7 @@ class ArticleController extends Controller
 
             $article->slug = $newSlug;
             $article->content = $request->content;
+            $article->excerpt = $request->excerpt;
             $article->imgUrl = $request->imgUrl;
 
             if ($request->category_id) {

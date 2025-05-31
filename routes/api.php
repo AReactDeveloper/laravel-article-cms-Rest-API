@@ -11,6 +11,13 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('/favicon.ico', function () {
+    return response(null, 204);
+});
+
+Route::get('/api/pages/favicon.ico', function () {
+    return response(null, 204);
+});
 
 Route::post('login', [AuthController::class, 'login']);
 
