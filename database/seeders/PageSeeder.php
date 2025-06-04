@@ -18,7 +18,40 @@ class PageSeeder extends Seeder
             DB::table('pages')->insert([
                 'title' => 'Page ' . $index,
                 'slug' => 'page-' . $index,
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+                'content' => '
+                {
+  "time": 1685893123456,
+  "blocks": [
+    {
+      "type": "header",
+      "data": {
+        "text": "About Us",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "Welcome to our company! We are dedicated to delivering the best products and services to our customers. Our mission is to innovate and inspire."
+      }
+    },
+    {
+      "type": "list",
+      "data": {
+        "style": "unordered",
+        "items": [
+          "Founded in 2020",
+          "Passionate team of experts",
+          "Customer-focused approach",
+          "Committed to sustainability"
+        ]
+      }
+    }
+  ],
+  "version": "2.27.0"
+}
+
+                ',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
