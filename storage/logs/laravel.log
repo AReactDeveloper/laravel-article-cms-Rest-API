@@ -1,0 +1,2084 @@
+[2025-06-04 03:06:10] production.INFO: Request Origin:   
+[2025-06-04 03:06:10] production.ERROR: No application encryption key has been specified. {"exception":"[object] (Illuminate\\Encryption\\MissingAppKeyException(code: 0): No application encryption key has been specified. at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:83)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Support/helpers.php(399): Illuminate\\Encryption\\EncryptionServiceProvider->{closure:Illuminate\\Encryption\\EncryptionServiceProvider::key():81}()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(81): tap()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(64): Illuminate\\Encryption\\EncryptionServiceProvider->key()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(32): Illuminate\\Encryption\\EncryptionServiceProvider->parseKey()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(952): Illuminate\\Encryption\\EncryptionServiceProvider->{closure:Illuminate\\Encryption\\EncryptionServiceProvider::registerEncrypter():29}()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\\Container\\Container->build()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(1133): Illuminate\\Foundation\\Application->make()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(1043): Illuminate\\Container\\Container->resolveClass()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(994): Illuminate\\Container\\Container->resolveDependencies()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\\Container\\Container->build()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(198): Illuminate\\Foundation\\Application->make()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/app/Http/Middleware/CorsMiddleware.php(26): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CorsMiddleware->handle()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#43 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 /home/winston/Documents/projects/laravel-article-cms-Rest-API/public/index.php(21): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('...')
+#47 {main}
+"} 
+[2025-06-04 03:06:10] production.ERROR: No application encryption key has been specified. {"exception":"[object] (Illuminate\\Encryption\\MissingAppKeyException(code: 0): No application encryption key has been specified. at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:83)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Support/helpers.php(399): Illuminate\\Encryption\\EncryptionServiceProvider->{closure:Illuminate\\Encryption\\EncryptionServiceProvider::key():81}()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(81): tap()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(64): Illuminate\\Encryption\\EncryptionServiceProvider->key()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(32): Illuminate\\Encryption\\EncryptionServiceProvider->parseKey()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(952): Illuminate\\Encryption\\EncryptionServiceProvider->{closure:Illuminate\\Encryption\\EncryptionServiceProvider::registerEncrypter():29}()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\\Container\\Container->build()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(1133): Illuminate\\Foundation\\Application->make()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(1043): Illuminate\\Container\\Container->resolveClass()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(994): Illuminate\\Container\\Container->resolveDependencies()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\\Container\\Container->build()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(258): Illuminate\\Foundation\\Application->make()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(216): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/public/index.php(29): Illuminate\\Foundation\\Http\\Kernel->terminate()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('...')
+#20 {main}
+"} 
+[2025-06-04 03:06:10] production.ERROR: Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php:387) in /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php:322
+Stack trace:
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->{closure:Illuminate\Foundation\Bootstrap\HandleExceptions::forwardsTo():255}()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php(322): header()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php(401): Symfony\Component\HttpFoundation\Response->sendHeaders()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(219): Symfony\Component\HttpFoundation\Response->send()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(196): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#7 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->{closure:Illuminate\Foundation\Bootstrap\HandleExceptions::forwardsTo():255}()
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php:387) in /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php:322
+Stack trace:
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php(322): header()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php(401): Symfony\\Component\\HttpFoundation\\Response->sendHeaders()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(219): Symfony\\Component\\HttpFoundation\\Response->send()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(196): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException()
+#7 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#8 {main}
+  thrown at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/http-foundation/Response.php:322)
+[stacktrace]
+#0 {main}
+"} 
+[2025-06-04 03:06:40] production.ERROR: Database file at path [/home/winston/Documents/projects/laravel-article-cms-Rest-API/database/database.sqlite] does not exist. Ensure this is an absolute path to the database. (Connection: sqlite, SQL: select exists (select 1 from sqlite_master where name = 'migrations' and type = 'table') as "exists") {"exception":"[object] (Illuminate\\Database\\QueryException(code: 0): Database file at path [/home/winston/Documents/projects/laravel-article-cms-Rest-API/database/database.sqlite] does not exist. Ensure this is an absolute path to the database. (Connection: sqlite, SQL: select exists (select 1 from sqlite_master where name = 'migrations' and type = 'table') as \"exists\") at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/SQLiteBuilder.php(44): Illuminate\\Database\\Connection->scalar()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\SQLiteBuilder->hasTable()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (Illuminate\\Database\\SQLiteDatabaseDoesNotExistException(code: 0): Database file at path [/home/winston/Documents/projects/laravel-article-cms-Rest-API/database/database.sqlite] does not exist. Ensure this is an absolute path to the database. at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/SQLiteConnector.php:37)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(224): Illuminate\\Database\\Connectors\\SQLiteConnector->connect()
+#1 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithoutHosts():224}()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1231): call_user_func()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/SQLiteBuilder.php(44): Illuminate\\Database\\Connection->scalar()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\SQLiteBuilder->hasTable()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#31 {main}
+"} 
+[2025-06-04 03:10:10] production.ERROR: file_get_contents(/home/winston/Documents/projects/laravel-article-cms-Rest-API/.env): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): file_get_contents(/home/winston/Documents/projects/laravel-article-cms-Rest-API/.env): Failed to open stream: No such file or directory at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php:100)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(100): file_get_contents()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(82): Illuminate\\Foundation\\Console\\KeyGenerateCommand->writeNewEnvironmentFileWith()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(47): Illuminate\\Foundation\\Console\\KeyGenerateCommand->setKeyInEnvironmentFile()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\KeyGenerateCommand->handle()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#19 {main}
+"} 
+[2025-06-04 03:11:08] local.ERROR: could not find driver (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 0): could not find driver (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (PDOException(code: 0): could not find driver at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:67)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(67): PDO::connect()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithHosts():180}()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1231): call_user_func()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+"} 
+[2025-06-04 03:13:02] local.ERROR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (PDOException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:67)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(67): PDO::connect()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithHosts():180}()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1231): call_user_func()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+"} 
+[2025-06-04 03:13:52] local.ERROR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = 'backend' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (PDOException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:67)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(67): PDO::connect()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithHosts():180}()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1231): call_user_func()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+"} 
+[2025-06-04 03:14:47] local.INFO: Request Origin:   
+[2025-06-04 03:14:53] local.INFO: Request Origin:   
+[2025-06-04 03:37:40] local.INFO: Request Origin:   
+[2025-06-04 03:41:32] local.INFO: Request Origin:   
+[2025-06-04 03:41:39] local.INFO: Request Origin:   
+[2025-06-04 03:42:29] local.INFO: Request Origin:   
+[2025-06-04 03:42:39] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:42:53] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:42:59] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:43:02] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:43:05] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:43:10] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:43:24] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:43:54] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-04 03:49:37] local.INFO: Request Origin:   
+[2025-06-04 03:52:03] local.INFO: Request Origin:   
+[2025-06-04 03:52:03] local.INFO: Request Origin:   
+[2025-06-04 03:52:03] local.INFO: Request Origin:   
+[2025-06-04 03:52:03] local.INFO: Request Origin:   
+[2025-06-04 03:52:03] local.INFO: Request Origin:   
+[2025-06-04 03:53:32] local.INFO: Request Origin:   
+[2025-06-04 03:53:32] local.INFO: Request Origin:   
+[2025-06-04 03:54:25] local.INFO: Request Origin:   
+[2025-06-04 03:54:25] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:26] local.INFO: Request Origin:   
+[2025-06-04 03:54:28] local.INFO: Request Origin:   
+[2025-06-04 03:54:28] local.INFO: Request Origin:   
+[2025-06-04 03:54:28] local.INFO: Request Origin:   
+[2025-06-04 03:54:29] local.INFO: Request Origin:   
+[2025-06-04 03:54:29] local.INFO: Request Origin:   
+[2025-06-04 03:54:29] local.INFO: Request Origin:   
+[2025-06-04 03:54:29] local.INFO: Request Origin:   
+[2025-06-04 03:54:29] local.INFO: Request Origin:   
+[2025-06-04 03:54:41] local.INFO: Request Origin:   
+[2025-06-04 03:54:41] local.INFO: Request Origin:   
+[2025-06-04 03:54:44] local.INFO: Request Origin:   
+[2025-06-04 03:54:44] local.INFO: Request Origin:   
+[2025-06-04 03:54:45] local.INFO: Request Origin:   
+[2025-06-04 03:54:45] local.INFO: Request Origin:   
+[2025-06-04 03:54:46] local.INFO: Request Origin:   
+[2025-06-04 03:54:47] local.INFO: Request Origin:   
+[2025-06-04 03:54:47] local.INFO: Request Origin:   
+[2025-06-04 03:54:47] local.INFO: Request Origin:   
+[2025-06-04 03:54:48] local.INFO: Request Origin:   
+[2025-06-04 03:54:48] local.INFO: Request Origin:   
+[2025-06-04 03:54:53] local.INFO: Request Origin:   
+[2025-06-04 03:54:53] local.INFO: Request Origin:   
+[2025-06-04 03:54:53] local.INFO: Request Origin:   
+[2025-06-04 03:54:53] local.INFO: Request Origin:   
+[2025-06-04 03:54:57] local.INFO: Request Origin:   
+[2025-06-04 03:54:57] local.INFO: Request Origin:   
+[2025-06-04 03:54:58] local.INFO: Request Origin:   
+[2025-06-04 03:54:58] local.INFO: Request Origin:   
+[2025-06-04 03:54:58] local.INFO: Request Origin:   
+[2025-06-04 03:54:58] local.INFO: Request Origin:   
+[2025-06-04 03:54:59] local.INFO: Request Origin:   
+[2025-06-04 03:54:59] local.INFO: Request Origin:   
+[2025-06-04 03:56:09] local.INFO: Request Origin:   
+[2025-06-04 03:56:09] local.INFO: Request Origin:   
+[2025-06-04 03:56:12] local.INFO: Request Origin:   
+[2025-06-04 03:56:12] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:30] local.INFO: Request Origin:   
+[2025-06-04 03:59:31] local.INFO: Request Origin:   
+[2025-06-04 03:59:31] local.INFO: Request Origin:   
+[2025-06-04 03:59:31] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:32] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:37] local.INFO: Request Origin:   
+[2025-06-04 03:59:38] local.INFO: Request Origin:   
+[2025-06-04 03:59:38] local.INFO: Request Origin:   
+[2025-06-04 03:59:38] local.INFO: Request Origin:   
+[2025-06-04 03:59:38] local.INFO: Request Origin:   
+[2025-06-04 03:59:39] local.INFO: Request Origin:   
+[2025-06-04 03:59:39] local.INFO: Request Origin:   
+[2025-06-04 03:59:39] local.INFO: Request Origin:   
+[2025-06-04 03:59:39] local.INFO: Request Origin:   
+[2025-06-04 03:59:40] local.INFO: Request Origin:   
+[2025-06-04 03:59:40] local.INFO: Request Origin:   
+[2025-06-04 03:59:43] local.INFO: Request Origin:   
+[2025-06-04 03:59:43] local.INFO: Request Origin:   
+[2025-06-04 15:12:50] local.INFO: Request Origin:   
+[2025-06-04 15:12:50] local.INFO: Request Origin:   
+[2025-06-04 15:12:51] local.INFO: Request Origin:   
+[2025-06-04 15:12:51] local.INFO: Request Origin:   
+[2025-06-04 15:12:53] local.INFO: Request Origin:   
+[2025-06-04 15:12:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:01] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:02] local.INFO: Request Origin:   
+[2025-06-04 15:13:03] local.INFO: Request Origin:   
+[2025-06-04 15:13:03] local.INFO: Request Origin:   
+[2025-06-04 15:13:03] local.INFO: Request Origin:   
+[2025-06-04 15:13:03] local.INFO: Request Origin:   
+[2025-06-04 15:13:18] local.INFO: Request Origin:   
+[2025-06-04 15:13:18] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:13:53] local.INFO: Request Origin:   
+[2025-06-04 15:54:38] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-04 15:54:39] local.INFO: Request Origin:   
+[2025-06-05 07:47:04] local.INFO: Request Origin:   
+[2025-06-05 07:47:04] local.INFO: Request Origin:   
+[2025-06-05 07:47:04] local.INFO: Request Origin:   
+[2025-06-05 07:47:04] local.INFO: Request Origin:   
+[2025-06-05 07:47:05] local.INFO: Request Origin:   
+[2025-06-05 07:47:05] local.INFO: Request Origin:   
+[2025-06-05 07:47:05] local.INFO: Request Origin:   
+[2025-06-05 07:47:05] local.INFO: Request Origin:   
+[2025-06-05 07:47:08] local.INFO: Request Origin:   
+[2025-06-05 07:47:08] local.INFO: Request Origin:   
+[2025-06-05 07:48:18] local.INFO: Request Origin:   
+[2025-06-05 07:48:18] local.INFO: Request Origin:   
+[2025-06-05 07:48:18] local.INFO: Request Origin:   
+[2025-06-05 07:48:18] local.INFO: Request Origin:   
+[2025-06-05 07:48:33] local.INFO: Request Origin:   
+[2025-06-05 07:48:33] local.INFO: Request Origin:   
+[2025-06-05 07:48:34] local.INFO: Request Origin:   
+[2025-06-05 07:48:34] local.INFO: Request Origin:   
+[2025-06-05 07:48:35] local.INFO: Request Origin:   
+[2025-06-05 07:48:35] local.INFO: Request Origin:   
+[2025-06-05 07:48:37] local.INFO: Request Origin:   
+[2025-06-05 07:48:37] local.INFO: Request Origin:   
+[2025-06-05 07:48:40] local.INFO: Request Origin:   
+[2025-06-05 07:48:40] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:02] local.INFO: Request Origin:   
+[2025-06-05 07:50:03] local.INFO: Request Origin:   
+[2025-06-05 07:50:03] local.INFO: Request Origin:   
+[2025-06-05 07:50:04] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:05] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:06] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:07] local.INFO: Request Origin:   
+[2025-06-05 07:50:08] local.INFO: Request Origin:   
+[2025-06-05 07:50:08] local.INFO: Request Origin:   
+[2025-06-05 07:50:08] local.INFO: Request Origin:   
+[2025-06-05 08:05:01] local.INFO: Request Origin:   
+[2025-06-05 08:05:01] local.INFO: Request Origin:   
+[2025-06-05 08:05:01] local.INFO: Request Origin:   
+[2025-06-05 08:05:01] local.INFO: Request Origin:   
+[2025-06-05 08:05:02] local.INFO: Request Origin:   
+[2025-06-05 08:05:02] local.INFO: Request Origin:   
+[2025-06-05 08:05:02] local.INFO: Request Origin:   
+[2025-06-05 08:05:02] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:03] local.INFO: Request Origin:   
+[2025-06-05 08:05:04] local.INFO: Request Origin:   
+[2025-06-05 08:20:47] local.INFO: Request Origin:   
+[2025-06-05 08:20:48] local.INFO: Request Origin:   
+[2025-06-05 08:20:48] local.INFO: Request Origin:   
+[2025-06-05 08:20:48] local.INFO: Request Origin:   
+[2025-06-05 08:20:48] local.INFO: Request Origin:   
+[2025-06-05 08:20:48] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:15] local.INFO: Request Origin:   
+[2025-06-05 08:21:17] local.INFO: Request Origin:   
+[2025-06-05 08:21:17] local.INFO: Request Origin:   
+[2025-06-05 08:21:18] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 08:23:20] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 08:46:46] local.INFO: Request Origin:   
+[2025-06-05 08:46:47] local.INFO: Request Origin:   
+[2025-06-05 08:48:28] local.INFO: Request Origin:   
+[2025-06-05 08:48:28] local.INFO: Request Origin:   
+[2025-06-05 08:48:28] local.INFO: Request Origin:   
+[2025-06-05 08:48:28] local.INFO: Request Origin:   
+[2025-06-05 08:48:29] local.INFO: Request Origin:   
+[2025-06-05 08:48:29] local.INFO: Request Origin:   
+[2025-06-05 08:48:29] local.INFO: Request Origin:   
+[2025-06-05 08:48:29] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:48:30] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:03] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:06] local.INFO: Request Origin:   
+[2025-06-05 08:56:24] local.INFO: Request Origin:   
+[2025-06-05 08:56:24] local.INFO: Request Origin:   
+[2025-06-05 08:56:24] local.INFO: Request Origin:   
+[2025-06-05 08:56:24] local.INFO: Request Origin:   
+[2025-06-05 08:56:24] local.INFO: Request Origin:   
+[2025-06-05 08:56:25] local.INFO: Request Origin:   
+[2025-06-05 08:56:25] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:26] local.INFO: Request Origin:   
+[2025-06-05 08:56:27] local.INFO: Request Origin:   
+[2025-06-05 08:56:34] local.INFO: Request Origin:   
+[2025-06-05 08:56:34] local.INFO: Request Origin:   
+[2025-06-05 08:56:34] local.INFO: Request Origin:   
+[2025-06-05 08:56:34] local.INFO: Request Origin:   
+[2025-06-05 08:56:35] local.INFO: Request Origin:   
+[2025-06-05 08:56:35] local.INFO: Request Origin:   
+[2025-06-05 08:56:35] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:36] local.INFO: Request Origin:   
+[2025-06-05 08:56:37] local.INFO: Request Origin:   
+[2025-06-05 16:16:35] local.INFO: Request Origin:   
+[2025-06-05 16:16:35] local.INFO: Request Origin:   
+[2025-06-05 16:16:36] local.INFO: Request Origin:   
+[2025-06-05 16:16:36] local.INFO: Request Origin:   
+[2025-06-05 16:16:36] local.INFO: Request Origin:   
+[2025-06-05 16:16:36] local.INFO: Request Origin:   
+[2025-06-05 16:16:36] local.INFO: Request Origin:   
+[2025-06-05 16:16:39] local.INFO: Request Origin:   
+[2025-06-05 16:16:39] local.INFO: Request Origin:   
+[2025-06-05 16:16:39] local.INFO: Request Origin:   
+[2025-06-05 16:16:39] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:38] local.INFO: Request Origin:   
+[2025-06-05 16:25:39] local.INFO: Request Origin:   
+[2025-06-05 16:25:39] local.INFO: Request Origin:   
+[2025-06-05 16:25:39] local.INFO: Request Origin:   
+[2025-06-05 16:25:39] local.INFO: Request Origin:   
+[2025-06-05 16:25:40] local.INFO: Request Origin:   
+[2025-06-05 16:25:40] local.INFO: Request Origin:   
+[2025-06-05 16:25:40] local.INFO: Request Origin:   
+[2025-06-05 16:25:40] local.INFO: Request Origin:   
+[2025-06-05 16:25:40] local.INFO: Request Origin:   
+[2025-06-05 16:27:25] local.INFO: Request Origin:   
+[2025-06-05 16:27:25] local.INFO: Request Origin:   
+[2025-06-05 16:28:16] local.INFO: Request Origin:   
+[2025-06-05 16:28:16] local.INFO: Request Origin:   
+[2025-06-05 16:28:16] local.INFO: Request Origin:   
+[2025-06-05 16:28:16] local.INFO: Request Origin:   
+[2025-06-05 16:28:17] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 16:28:19] local.INFO: Request Origin:   
+[2025-06-05 16:28:19] local.INFO: Request Origin:   
+[2025-06-05 16:28:21] local.INFO: Request Origin:   
+[2025-06-05 16:28:21] local.INFO: Request Origin:   
+[2025-06-05 16:28:23] local.INFO: Request Origin:   
+[2025-06-05 16:28:23] local.INFO: Request Origin:   
+[2025-06-05 16:28:24] local.INFO: Request Origin:   
+[2025-06-05 16:28:24] local.INFO: Request Origin:   
+[2025-06-05 16:28:37] local.INFO: Request Origin:   
+[2025-06-05 16:28:37] local.INFO: Request Origin:   
+[2025-06-05 16:28:38] local.INFO: Request Origin:   
+[2025-06-05 16:28:38] local.INFO: Request Origin:   
+[2025-06-05 16:28:41] local.INFO: Request Origin:   
+[2025-06-05 16:28:41] local.INFO: Request Origin:   
+[2025-06-05 16:28:41] local.INFO: Request Origin:   
+[2025-06-05 16:28:42] local.INFO: Request Origin:   
+[2025-06-05 16:28:44] local.INFO: Request Origin:   
+[2025-06-05 16:28:44] local.INFO: Request Origin:   
+[2025-06-05 16:28:44] local.INFO: Request Origin:   
+[2025-06-05 16:28:44] local.INFO: Request Origin:   
+[2025-06-05 16:28:45] local.INFO: Request Origin:   
+[2025-06-05 16:28:45] local.INFO: Request Origin:   
+[2025-06-05 16:28:45] local.INFO: Request Origin:   
+[2025-06-05 16:28:46] local.INFO: Request Origin:   
+[2025-06-05 16:28:46] local.INFO: Request Origin:   
+[2025-06-05 16:28:46] local.INFO: Request Origin:   
+[2025-06-05 16:28:49] local.INFO: Request Origin:   
+[2025-06-05 16:28:49] local.INFO: Request Origin:   
+[2025-06-05 16:28:50] local.INFO: Request Origin:   
+[2025-06-05 16:28:50] local.INFO: Request Origin:   
+[2025-06-05 16:28:51] local.INFO: Request Origin:   
+[2025-06-05 16:28:51] local.INFO: Request Origin:   
+[2025-06-05 16:28:52] local.INFO: Request Origin:   
+[2025-06-05 16:28:52] local.INFO: Request Origin:   
+[2025-06-05 16:28:53] local.INFO: Request Origin:   
+[2025-06-05 16:28:53] local.INFO: Request Origin:   
+[2025-06-05 16:34:36] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 16:44:52] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 16:45:00] local.INFO: Request Origin:   
+[2025-06-05 16:45:01] local.INFO: Request Origin:   
+[2025-06-05 16:45:01] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 16:45:03] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-05 16:45:12] local.INFO: Request Origin:   
+[2025-06-05 16:45:12] local.INFO: Request Origin:   
+[2025-06-05 16:45:12] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:03] local.INFO: Request Origin:   
+[2025-06-06 08:03:06] local.INFO: Request Origin:   
+[2025-06-06 08:03:06] local.INFO: Request Origin:   
+[2025-06-06 08:03:15] local.INFO: Request Origin:   
+[2025-06-06 08:03:16] local.INFO: Request Origin:   
+[2025-06-06 08:03:16] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:32:25] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:26] local.INFO: Request Origin:   
+[2025-06-07 08:32:29] local.INFO: Request Origin:   
+[2025-06-07 08:32:29] local.INFO: Request Origin:   
+[2025-06-07 08:33:18] local.INFO: Request Origin:   
+[2025-06-07 08:33:18] local.INFO: Request Origin:   
+[2025-06-07 08:33:19] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:34:39] local.INFO: Request Origin:   
+[2025-06-07 08:34:40] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:34:48] local.INFO: Request Origin:   
+[2025-06-07 08:34:48] local.INFO: Request Origin:   
+[2025-06-07 08:34:51] local.INFO: Request Origin:   
+[2025-06-07 08:34:51] local.INFO: Request Origin:   
+[2025-06-07 08:34:52] local.INFO: Request Origin:   
+[2025-06-07 08:34:52] local.INFO: Request Origin:   
+[2025-06-07 08:34:54] local.INFO: Request Origin:   
+[2025-06-07 08:34:54] local.INFO: Request Origin:   
+[2025-06-07 08:34:58] local.INFO: Request Origin:   
+[2025-06-07 08:34:58] local.INFO: Request Origin:   
+[2025-06-07 08:36:07] local.INFO: Request Origin:   
+[2025-06-07 08:36:07] local.INFO: Request Origin:   
+[2025-06-07 08:36:08] local.INFO: Request Origin:   
+[2025-06-07 08:36:08] local.INFO: Request Origin:   
+[2025-06-07 08:36:09] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:43:46] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:44:45] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:45:56] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:46:21] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:46:50] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:47:41] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:48:19] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:48:33] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:48:45] local.INFO: Request Origin:   
+[2025-06-07 08:48:49] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:50:10] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:50:21] local.INFO: Request Origin:   
+[2025-06-07 08:51:03] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:51:35] local.INFO: Request Origin:   
+[2025-06-07 08:51:39] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:39] local.INFO: Request Origin:   
+[2025-06-07 08:56:40] local.INFO: Request Origin:   
+[2025-06-07 08:56:40] local.INFO: Request Origin:   
+[2025-06-07 08:56:40] local.INFO: Request Origin:   
+[2025-06-07 08:56:40] local.INFO: Request Origin:   
+[2025-06-07 08:56:41] local.INFO: Request Origin:   
+[2025-06-07 08:56:41] local.INFO: Request Origin:   
+[2025-06-07 08:56:41] local.INFO: Request Origin:   
+[2025-06-07 08:56:41] local.INFO: Request Origin:   
+[2025-06-07 08:57:19] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 09:04:51] local.INFO: Request Origin:   
+[2025-06-07 09:04:51] local.INFO: Request Origin:   
+[2025-06-07 09:04:52] local.INFO: Request Origin:   
+[2025-06-07 09:04:52] local.INFO: Request Origin:   
+[2025-06-07 09:04:53] local.INFO: Request Origin:   
+[2025-06-07 09:04:53] local.INFO: Request Origin:   
+[2025-06-07 09:04:53] local.INFO: Request Origin:   
+[2025-06-07 09:04:53] local.INFO: Request Origin:   
+[2025-06-07 09:05:10] local.INFO: Request Origin:   
+[2025-06-07 09:05:10] local.INFO: Request Origin:   
+[2025-06-07 09:05:11] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 09:06:05] local.INFO: Request Origin:   
+[2025-06-07 09:06:05] local.INFO: Request Origin:   
+[2025-06-07 09:06:08] local.INFO: Request Origin:   
+[2025-06-07 09:06:08] local.INFO: Request Origin:   
+[2025-06-07 09:06:10] local.INFO: Request Origin:   
+[2025-06-07 09:06:10] local.INFO: Request Origin:   
+[2025-06-07 09:06:12] local.INFO: Request Origin:   
+[2025-06-07 09:06:12] local.INFO: Request Origin:   
+[2025-06-07 09:06:14] local.INFO: Request Origin:   
+[2025-06-07 09:06:14] local.INFO: Request Origin:   
+[2025-06-07 09:06:14] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 09:06:18] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 09:09:25] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-07 09:09:31] local.INFO: Request Origin:   
+[2025-06-07 09:09:31] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:42] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-07 21:14:43] local.INFO: Request Origin:   
+[2025-06-08 04:52:51] local.INFO: Request Origin:   
+[2025-06-08 04:52:51] local.INFO: Request Origin:   
+[2025-06-08 04:52:51] local.INFO: Request Origin:   
+[2025-06-08 04:52:51] local.INFO: Request Origin:   
+[2025-06-08 04:52:52] local.INFO: Request Origin:   
+[2025-06-08 04:52:52] local.INFO: Request Origin:   
+[2025-06-08 04:52:52] local.INFO: Request Origin:   
+[2025-06-08 04:52:54] local.INFO: Request Origin:   
+[2025-06-08 04:52:54] local.INFO: Request Origin:   
+[2025-06-08 04:54:17] local.INFO: Request Origin:   
+[2025-06-08 04:54:17] local.INFO: Request Origin:   
+[2025-06-08 04:54:21] local.INFO: Request Origin:   
+[2025-06-08 04:54:21] local.INFO: Request Origin:   
+[2025-06-08 04:54:28] local.INFO: Request Origin:   
+[2025-06-08 04:54:28] local.INFO: Request Origin:   
+[2025-06-08 04:54:29] local.INFO: Request Origin:   
+[2025-06-08 04:54:29] local.INFO: Request Origin:   
+[2025-06-08 04:54:29] local.INFO: Request Origin:   
+[2025-06-08 04:54:30] local.INFO: Request Origin:   
+[2025-06-08 04:54:30] local.INFO: Request Origin:   
+[2025-06-08 04:54:30] local.INFO: Request Origin:   
+[2025-06-08 04:54:42] local.INFO: Request Origin:   
+[2025-06-08 04:54:43] local.INFO: Request Origin:   
+[2025-06-08 04:54:43] local.INFO: Request Origin:   
+[2025-06-08 04:54:43] local.INFO: Request Origin:   
+[2025-06-08 04:54:43] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 04:57:27] local.INFO: Request Origin:   
+[2025-06-08 04:57:28] local.INFO: Request Origin:   
+[2025-06-08 04:57:28] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 04:57:34] local.INFO: Request Origin:   
+[2025-06-08 04:57:34] local.INFO: Request Origin:   
+[2025-06-08 04:57:34] local.INFO: Request Origin:   
+[2025-06-08 04:57:35] local.INFO: Request Origin:   
+[2025-06-08 04:57:35] local.INFO: Request Origin:   
+[2025-06-08 04:57:35] local.INFO: Request Origin:   
+[2025-06-08 05:03:56] local.INFO: Request Origin:   
+[2025-06-08 05:03:56] local.INFO: Request Origin:   
+[2025-06-08 05:08:06] local.INFO: Request Origin:   
+[2025-06-08 05:08:11] local.INFO: Request Origin:   
+[2025-06-08 05:08:22] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:10:15] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:14:21] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:14:31] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:31:04] local.INFO: Request Origin:   
+[2025-06-08 05:38:24] local.INFO: Request Origin:   
+[2025-06-08 05:41:40] local.INFO: Request Origin:   
+[2025-06-08 05:41:41] local.INFO: Request Origin:   
+[2025-06-08 05:41:41] local.INFO: Request Origin:   
+[2025-06-08 05:41:41] local.INFO: Request Origin:   
+[2025-06-08 05:41:41] local.INFO: Request Origin:   
+[2025-06-08 05:41:41] local.INFO: Request Origin:   
+[2025-06-08 05:42:35] local.INFO: Request Origin:   
+[2025-06-08 05:42:35] local.INFO: Request Origin:   
+[2025-06-08 05:42:49] local.INFO: Request Origin:   
+[2025-06-08 05:43:19] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:43:26] local.INFO: Request Origin:   
+[2025-06-08 05:43:36] local.INFO: Request Origin:   
+[2025-06-08 05:43:38] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:44] local.INFO: Request Origin:   
+[2025-06-08 05:43:45] local.INFO: Request Origin:   
+[2025-06-08 05:43:45] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:46] local.INFO: Request Origin:   
+[2025-06-08 05:43:47] local.INFO: Request Origin:   
+[2025-06-08 05:43:48] local.INFO: Request Origin:   
+[2025-06-08 05:43:48] local.INFO: Request Origin:   
+[2025-06-08 05:43:48] local.INFO: Request Origin:   
+[2025-06-08 05:43:48] local.INFO: Request Origin:   
+[2025-06-08 05:43:49] local.INFO: Request Origin:   
+[2025-06-08 05:43:49] local.INFO: Request Origin:   
+[2025-06-08 05:43:49] local.INFO: Request Origin:   
+[2025-06-08 05:43:49] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:43:50] local.INFO: Request Origin:   
+[2025-06-08 05:44:38] local.INFO: Request Origin:   
+[2025-06-08 05:44:38] local.INFO: Request Origin:   
+[2025-06-08 05:44:39] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:45:04] local.INFO: Request Origin:   
+[2025-06-08 05:45:07] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:08] local.INFO: Request Origin:   
+[2025-06-08 05:45:09] local.INFO: Request Origin:   
+[2025-06-08 05:45:09] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:10] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:12] local.INFO: Request Origin:   
+[2025-06-08 05:45:13] local.INFO: Request Origin:   
+[2025-06-08 05:45:13] local.INFO: Request Origin:   
+[2025-06-08 05:45:13] local.INFO: Request Origin:   
+[2025-06-08 05:45:14] local.INFO: Request Origin:   
+[2025-06-08 05:45:14] local.INFO: Request Origin:   
+[2025-06-08 05:45:14] local.INFO: Request Origin:   
+[2025-06-08 05:45:14] local.INFO: Request Origin:   
+[2025-06-08 05:45:14] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:49] local.INFO: Request Origin:   
+[2025-06-08 05:46:53] local.INFO: Request Origin:   
+[2025-06-08 05:46:53] local.INFO: Request Origin:   
+[2025-06-08 05:46:53] local.INFO: Request Origin:   
+[2025-06-08 05:46:53] local.INFO: Request Origin:   
+[2025-06-08 05:46:54] local.INFO: Request Origin:   
+[2025-06-08 05:46:54] local.INFO: Request Origin:   
+[2025-06-08 05:46:54] local.INFO: Request Origin:   
+[2025-06-08 05:46:54] local.INFO: Request Origin:   
+[2025-06-08 05:46:54] local.INFO: Request Origin:   
+[2025-06-08 05:46:58] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:02] local.INFO: Request Origin:   
+[2025-06-08 05:47:03] local.INFO: Request Origin:   
+[2025-06-08 05:47:03] local.INFO: Request Origin:   
+[2025-06-08 05:47:03] local.INFO: Request Origin:   
+[2025-06-08 05:47:03] local.INFO: Request Origin:   
+[2025-06-08 05:47:04] local.INFO: Request Origin:   
+[2025-06-08 05:47:04] local.INFO: Request Origin:   
+[2025-06-08 05:47:04] local.INFO: Request Origin:   
+[2025-06-08 05:47:04] local.INFO: Request Origin:   
+[2025-06-08 05:47:19] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:21] local.INFO: Request Origin:   
+[2025-06-08 05:47:22] local.INFO: Request Origin:   
+[2025-06-08 05:47:22] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:47:23] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:03] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:05] local.INFO: Request Origin:   
+[2025-06-08 05:52:06] local.INFO: Request Origin:   
+[2025-06-08 05:52:18] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:19] local.INFO: Request Origin:   
+[2025-06-08 05:52:23] local.INFO: Request Origin:   
+[2025-06-08 05:52:23] local.INFO: Request Origin:   
+[2025-06-08 05:52:23] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:24] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:28] local.INFO: Request Origin:   
+[2025-06-08 05:52:29] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:52:30] local.INFO: Request Origin:   
+[2025-06-08 05:53:36] local.INFO: Request Origin:   
+[2025-06-08 05:53:36] local.INFO: Request Origin:   
+[2025-06-08 05:53:36] local.INFO: Request Origin:   
+[2025-06-08 05:53:36] local.INFO: Request Origin:   
+[2025-06-08 05:53:36] local.INFO: Request Origin:   
+[2025-06-08 05:53:37] local.INFO: Request Origin:   
+[2025-06-08 05:53:37] local.INFO: Request Origin:   
+[2025-06-08 05:53:37] local.INFO: Request Origin:   
+[2025-06-08 05:53:37] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:38] local.INFO: Request Origin:   
+[2025-06-08 05:53:39] local.INFO: Request Origin:   
+[2025-06-08 05:53:39] local.INFO: Request Origin:   
+[2025-06-08 05:53:39] local.INFO: Request Origin:   
+[2025-06-08 05:53:39] local.INFO: Request Origin:   
+[2025-06-08 05:53:40] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:41] local.INFO: Request Origin:   
+[2025-06-08 05:53:42] local.INFO: Request Origin:   
+[2025-06-08 05:53:42] local.INFO: Request Origin:   
+[2025-06-08 05:53:42] local.INFO: Request Origin:   
+[2025-06-08 05:53:42] local.INFO: Request Origin:   
+[2025-06-08 05:53:42] local.INFO: Request Origin:   
+[2025-06-08 05:53:43] local.INFO: Request Origin:   
+[2025-06-08 05:53:43] local.INFO: Request Origin:   
+[2025-06-08 05:53:43] local.INFO: Request Origin:   
+[2025-06-08 05:53:43] local.INFO: Request Origin:   
+[2025-06-08 05:53:43] local.INFO: Request Origin:   
+[2025-06-08 05:53:55] local.INFO: Request Origin:   
+[2025-06-08 05:53:55] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:56] local.INFO: Request Origin:   
+[2025-06-08 05:53:57] local.INFO: Request Origin:   
+[2025-06-08 05:53:57] local.INFO: Request Origin:   
+[2025-06-08 05:53:57] local.INFO: Request Origin:   
+[2025-06-08 05:53:57] local.INFO: Request Origin:   
+[2025-06-08 05:53:57] local.INFO: Request Origin:   
+[2025-06-08 05:53:58] local.INFO: Request Origin:   
+[2025-06-08 05:53:58] local.INFO: Request Origin:   
+[2025-06-08 05:53:58] local.INFO: Request Origin:   
+[2025-06-08 05:53:58] local.INFO: Request Origin:   
+[2025-06-08 05:54:40] local.INFO: Request Origin:   
+[2025-06-08 05:54:40] local.INFO: Request Origin:   
+[2025-06-08 05:54:40] local.INFO: Request Origin:   
+[2025-06-08 05:54:40] local.INFO: Request Origin:   
+[2025-06-08 05:54:41] local.INFO: Request Origin:   
+[2025-06-08 05:54:41] local.INFO: Request Origin:   
+[2025-06-08 05:54:41] local.INFO: Request Origin:   
+[2025-06-08 05:54:45] local.INFO: Request Origin:   
+[2025-06-08 05:54:45] local.INFO: Request Origin:   
+[2025-06-08 05:54:45] local.INFO: Request Origin:   
+[2025-06-08 05:54:45] local.INFO: Request Origin:   
+[2025-06-08 05:54:46] local.INFO: Request Origin:   
+[2025-06-08 05:54:46] local.INFO: Request Origin:   
+[2025-06-08 05:54:46] local.INFO: Request Origin:   
+[2025-06-08 05:54:46] local.INFO: Request Origin:   
+[2025-06-08 05:54:51] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:52] local.INFO: Request Origin:   
+[2025-06-08 05:54:53] local.INFO: Request Origin:   
+[2025-06-08 05:54:55] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:55:22] local.INFO: Request Origin:   
+[2025-06-08 05:55:31] local.INFO: Request Origin:   
+[2025-06-08 05:55:32] local.INFO: Request Origin:   
+[2025-06-08 05:55:33] local.INFO: Request Origin:   
+[2025-06-08 05:55:33] local.INFO: Request Origin:   
+[2025-06-08 05:55:33] local.INFO: Request Origin:   
+[2025-06-08 05:55:33] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:34] local.INFO: Request Origin:   
+[2025-06-08 05:55:35] local.INFO: Request Origin:   
+[2025-06-08 05:55:35] local.INFO: Request Origin:   
+[2025-06-08 05:55:35] local.INFO: Request Origin:   
+[2025-06-08 05:56:56] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:57:18] local.INFO: Request Origin:   
+[2025-06-08 05:57:19] local.INFO: Request Origin:   
+[2025-06-08 05:57:19] local.INFO: Request Origin:   
+[2025-06-08 05:57:19] local.INFO: Request Origin:   
+[2025-06-08 05:57:19] local.INFO: Request Origin:   
+[2025-06-08 05:57:20] local.INFO: Request Origin:   
+[2025-06-08 05:57:20] local.INFO: Request Origin:   
+[2025-06-08 05:57:29] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:30] local.INFO: Request Origin:   
+[2025-06-08 05:57:31] local.INFO: Request Origin:   
+[2025-06-08 05:58:51] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:59:24] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:59:26] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:59:37] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 05:59:37] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 06:09:56] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:09:59] local.INFO: Request Origin:   
+[2025-06-08 06:10:03] local.INFO: Request Origin:   
+[2025-06-08 06:10:03] local.INFO: Request Origin:   
+[2025-06-08 06:10:03] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:04] local.INFO: Request Origin:   
+[2025-06-08 06:10:05] local.INFO: Request Origin:   
+[2025-06-08 06:10:05] local.INFO: Request Origin:   
+[2025-06-08 06:10:05] local.INFO: Request Origin:   
+[2025-06-08 06:10:05] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:10:06] local.INFO: Request Origin:   
+[2025-06-08 06:11:34] local.INFO: Request Origin:   
+[2025-06-08 06:11:34] local.INFO: Request Origin:   
+[2025-06-08 06:22:04] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 06:22:25] local.INFO: Request Origin:   
+[2025-06-08 06:22:25] local.INFO: Request Origin:   
+[2025-06-08 06:57:51] local.INFO: Request Origin:   
+[2025-06-08 06:58:03] local.INFO: Request Origin:   
+[2025-06-08 06:58:04] local.INFO: Request Origin:   
+[2025-06-08 06:58:05] local.INFO: Request Origin:   
+[2025-06-08 06:58:05] local.INFO: Request Origin:   
+[2025-06-08 06:58:05] local.INFO: Request Origin:   
+[2025-06-08 06:58:05] local.INFO: Request Origin:   
+[2025-06-08 06:58:05] local.INFO: Request Origin:   
+[2025-06-08 06:58:25] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:27] local.INFO: Request Origin:   
+[2025-06-08 06:58:33] local.INFO: Request Origin:   
+[2025-06-08 06:58:33] local.INFO: Request Origin:   
+[2025-06-08 06:58:34] local.INFO: Request Origin:   
+[2025-06-08 06:58:34] local.INFO: Request Origin:   
+[2025-06-08 06:58:34] local.INFO: Request Origin:   
+[2025-06-08 06:58:34] local.INFO: Request Origin:   
+[2025-06-08 06:58:34] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:35] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:36] local.INFO: Request Origin:   
+[2025-06-08 06:58:37] local.INFO: Request Origin:   
+[2025-06-08 06:58:37] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:38] local.INFO: Request Origin:   
+[2025-06-08 06:58:39] local.INFO: Request Origin:   
+[2025-06-08 06:58:39] local.INFO: Request Origin:   
+[2025-06-08 06:58:39] local.INFO: Request Origin:   
+[2025-06-08 06:58:39] local.INFO: Request Origin:   
+[2025-06-08 07:00:59] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:01] local.INFO: Request Origin:   
+[2025-06-08 07:01:20] local.INFO: Request Origin:   
+[2025-06-08 07:01:21] local.INFO: Request Origin:   
+[2025-06-08 07:01:21] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:03:26] local.INFO: Request Origin:   
+[2025-06-08 07:03:26] local.INFO: Request Origin:   
+[2025-06-08 07:03:26] local.INFO: Request Origin:   
+[2025-06-08 07:03:27] local.INFO: Request Origin:   
+[2025-06-08 07:03:27] local.INFO: Request Origin:   
+[2025-06-08 07:03:27] local.INFO: Request Origin:   
+[2025-06-08 07:03:27] local.INFO: Request Origin:   
+[2025-06-08 07:03:28] local.INFO: Request Origin:   
+[2025-06-08 07:03:28] local.INFO: Request Origin:   
+[2025-06-08 07:03:28] local.INFO: Request Origin:   
+[2025-06-08 07:03:28] local.INFO: Request Origin:   
+[2025-06-08 07:03:29] local.INFO: Request Origin:   
+[2025-06-08 07:03:29] local.INFO: Request Origin:   
+[2025-06-08 07:03:29] local.INFO: Request Origin:   
+[2025-06-08 07:03:29] local.INFO: Request Origin:   
+[2025-06-08 07:03:30] local.INFO: Request Origin:   
+[2025-06-08 07:04:00] local.INFO: Request Origin:   
+[2025-06-08 07:04:00] local.INFO: Request Origin:   
+[2025-06-08 07:04:01] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:07:03] local.INFO: Request Origin:   
+[2025-06-08 07:07:03] local.INFO: Request Origin:   
+[2025-06-08 07:07:03] local.INFO: Request Origin:   
+[2025-06-08 07:07:04] local.INFO: Request Origin:   
+[2025-06-08 07:07:04] local.INFO: Request Origin:   
+[2025-06-08 07:07:04] local.INFO: Request Origin:   
+[2025-06-08 07:07:04] local.INFO: Request Origin:   
+[2025-06-08 07:07:05] local.INFO: Request Origin:   
+[2025-06-08 07:07:05] local.INFO: Request Origin:   
+[2025-06-08 07:07:05] local.INFO: Request Origin:   
+[2025-06-08 07:07:05] local.INFO: Request Origin:   
+[2025-06-08 07:07:06] local.INFO: Request Origin:   
+[2025-06-08 07:07:06] local.INFO: Request Origin:   
+[2025-06-08 07:07:06] local.INFO: Request Origin:   
+[2025-06-08 07:07:06] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:50] local.INFO: Request Origin:   
+[2025-06-08 07:07:51] local.INFO: Request Origin:   
+[2025-06-08 07:07:51] local.INFO: Request Origin:   
+[2025-06-08 07:07:51] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:07:52] local.INFO: Request Origin:   
+[2025-06-08 07:08:04] local.INFO: Request Origin:   
+[2025-06-08 07:10:06] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:07] local.INFO: Request Origin:   
+[2025-06-08 07:10:08] local.INFO: Request Origin:   
+[2025-06-08 07:10:08] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:09] local.INFO: Request Origin:   
+[2025-06-08 07:10:13] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:17] local.INFO: Request Origin:   
+[2025-06-08 07:10:18] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:20] local.INFO: Request Origin:   
+[2025-06-08 07:10:21] local.INFO: Request Origin:   
+[2025-06-08 07:10:21] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:29] local.INFO: Request Origin:   
+[2025-06-08 07:10:30] local.INFO: Request Origin:   
+[2025-06-08 07:10:30] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:31] local.INFO: Request Origin:   
+[2025-06-08 07:10:32] local.INFO: Request Origin:   
+[2025-06-08 07:10:32] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:03] local.INFO: Request Origin:   
+[2025-06-08 07:13:04] local.INFO: Request Origin:   
+[2025-06-08 07:13:04] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:05] local.INFO: Request Origin:   
+[2025-06-08 07:13:17] local.INFO: Request Origin:   
+[2025-06-08 07:13:17] local.INFO: Request Origin:   
+[2025-06-08 07:14:38] local.INFO: Request Origin:   
+[2025-06-08 07:14:38] local.INFO: Request Origin:   
+[2025-06-08 07:14:38] local.INFO: Request Origin:   
+[2025-06-08 07:14:39] local.INFO: Request Origin:   
+[2025-06-08 07:19:54] local.INFO: Request Origin:   
+[2025-06-08 07:20:03] local.INFO: Request Origin:   
+[2025-06-08 07:20:03] local.INFO: Request Origin:   
+[2025-06-08 07:20:03] local.INFO: Request Origin:   
+[2025-06-08 07:20:03] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:04] local.INFO: Request Origin:   
+[2025-06-08 07:20:06] local.INFO: Request Origin:   
+[2025-06-08 07:20:06] local.INFO: Request Origin:   
+[2025-06-08 07:20:07] local.INFO: Request Origin:   
+[2025-06-08 07:20:07] local.INFO: Request Origin:   
+[2025-06-08 07:20:07] local.INFO: Request Origin:   
+[2025-06-08 07:20:07] local.INFO: Request Origin:   
+[2025-06-08 07:20:08] local.INFO: Request Origin:   
+[2025-06-08 07:20:08] local.INFO: Request Origin:   
+[2025-06-08 07:20:08] local.INFO: Request Origin:   
+[2025-06-08 07:20:10] local.INFO: Request Origin:   
+[2025-06-08 07:20:10] local.INFO: Request Origin:   
+[2025-06-08 07:20:12] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:13] local.INFO: Request Origin:   
+[2025-06-08 07:20:14] local.INFO: Request Origin:   
+[2025-06-08 07:20:14] local.INFO: Request Origin:   
+[2025-06-08 07:20:15] local.INFO: Request Origin:   
+[2025-06-08 07:20:18] local.INFO: Request Origin:   
+[2025-06-08 07:20:18] local.INFO: Request Origin:   
+[2025-06-08 07:20:18] local.INFO: Request Origin:   
+[2025-06-08 07:20:18] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:19] local.INFO: Request Origin:   
+[2025-06-08 07:20:20] local.INFO: Request Origin:   
+[2025-06-08 07:20:20] local.INFO: Request Origin:   
+[2025-06-08 07:20:20] local.INFO: Request Origin:   
+[2025-06-08 07:20:24] local.INFO: Request Origin:   
+[2025-06-08 07:20:26] local.INFO: Request Origin:   
+[2025-06-08 07:20:26] local.INFO: Request Origin:   
+[2025-06-08 07:20:41] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:43] local.INFO: Request Origin:   
+[2025-06-08 07:20:45] local.INFO: Request Origin:   
+[2025-06-08 07:20:45] local.INFO: Request Origin:   
+[2025-06-08 07:20:45] local.INFO: Request Origin:   
+[2025-06-08 07:20:46] local.INFO: Request Origin:   
+[2025-06-08 07:20:46] local.INFO: Request Origin:   
+[2025-06-08 07:20:46] local.INFO: Request Origin:   
+[2025-06-08 07:20:46] local.INFO: Request Origin:   
+[2025-06-08 07:20:46] local.INFO: Request Origin:   
+[2025-06-08 07:21:43] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:44] local.INFO: Request Origin:   
+[2025-06-08 07:21:53] local.INFO: Request Origin:   
+[2025-06-08 07:21:54] local.INFO: Request Origin:   
+[2025-06-08 07:21:54] local.INFO: Request Origin:   
+[2025-06-08 07:21:54] local.INFO: Request Origin:   
+[2025-06-08 07:21:54] local.INFO: Request Origin:   
+[2025-06-08 07:21:55] local.INFO: Request Origin:   
+[2025-06-08 07:21:55] local.INFO: Request Origin:   
+[2025-06-08 07:21:55] local.INFO: Request Origin:   
+[2025-06-08 07:36:15] local.INFO: Request Origin:   
+[2025-06-08 07:38:52] local.INFO: Request Origin:   
+[2025-06-08 07:38:52] local.INFO: Request Origin:   
+[2025-06-08 07:38:52] local.INFO: Request Origin:   
+[2025-06-08 07:38:53] local.INFO: Request Origin:   
+[2025-06-08 07:38:53] local.INFO: Request Origin:   
+[2025-06-08 07:38:53] local.INFO: Request Origin:   
+[2025-06-08 07:38:53] local.INFO: Request Origin:   
+[2025-06-08 07:38:53] local.INFO: Request Origin:   
+[2025-06-08 07:44:10] local.INFO: Request Origin:   
+[2025-06-08 07:44:14] local.INFO: Request Origin:   
+[2025-06-08 07:44:14] local.INFO: Request Origin:   
+[2025-06-08 07:44:14] local.INFO: Request Origin:   
+[2025-06-08 07:44:15] local.INFO: Request Origin:   
+[2025-06-08 07:44:15] local.INFO: Request Origin:   
+[2025-06-08 07:44:15] local.INFO: Request Origin:   
+[2025-06-08 07:44:15] local.INFO: Request Origin:   
+[2025-06-08 07:44:15] local.INFO: Request Origin:   
+[2025-06-08 07:44:34] local.INFO: Request Origin:   
+[2025-06-08 07:44:34] local.INFO: Request Origin:   
+[2025-06-08 07:44:34] local.INFO: Request Origin:   
+[2025-06-08 07:44:34] local.INFO: Request Origin:   
+[2025-06-08 07:44:34] local.INFO: Request Origin:   
+[2025-06-08 07:44:35] local.INFO: Request Origin:   
+[2025-06-08 07:44:35] local.INFO: Request Origin:   
+[2025-06-08 07:44:35] local.INFO: Request Origin:   
+[2025-06-08 07:45:47] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:45:47] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:06] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:06] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:14] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:14] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:15] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:15] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:18] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:18] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:27] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:27] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:30] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:30] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:36] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:39] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:46] local.INFO: Request Origin:   
+[2025-06-08 07:46:47] local.INFO: Request Origin:   
+[2025-06-08 07:46:47] local.INFO: Request Origin:   
+[2025-06-08 07:46:50] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:53] local.INFO: Request Origin:   
+[2025-06-08 07:46:54] local.INFO: Request Origin:   
+[2025-06-08 07:46:54] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:08] local.INFO: Request Origin:   
+[2025-06-08 07:47:09] local.INFO: Request Origin:   
+[2025-06-08 07:47:09] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:10] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:11] local.INFO: Request Origin:   
+[2025-06-08 07:47:12] local.INFO: Request Origin:   
+[2025-06-08 07:47:12] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:47:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:05] local.INFO: Request Origin:   
+[2025-06-08 07:48:07] local.INFO: Request Origin:   
+[2025-06-08 07:48:07] local.INFO: Request Origin:   
+[2025-06-08 07:48:08] local.INFO: Request Origin:   
+[2025-06-08 07:48:08] local.INFO: Request Origin:   
+[2025-06-08 07:48:08] local.INFO: Request Origin:   
+[2025-06-08 07:48:08] local.INFO: Request Origin:   
+[2025-06-08 07:48:08] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:09] local.INFO: Request Origin:   
+[2025-06-08 07:48:10] local.INFO: Request Origin:   
+[2025-06-08 07:48:10] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:11] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:12] local.INFO: Request Origin:   
+[2025-06-08 07:48:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:13] local.INFO: Request Origin:   
+[2025-06-08 07:48:14] local.INFO: Request Origin:   
+[2025-06-08 07:48:14] local.INFO: Request Origin:   
+[2025-06-08 07:48:14] local.INFO: Request Origin:   
+[2025-06-08 07:48:14] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:15] local.INFO: Request Origin:   
+[2025-06-08 07:48:16] local.INFO: Request Origin:   
+[2025-06-08 07:48:16] local.INFO: Request Origin:   
+[2025-06-08 07:48:16] local.INFO: Request Origin:   
+[2025-06-08 07:48:16] local.INFO: Request Origin:   
+[2025-06-08 07:48:16] local.INFO: Request Origin:   
+[2025-06-08 07:48:17] local.INFO: Request Origin:   
+[2025-06-08 07:48:17] local.INFO: Request Origin:   
+[2025-06-08 07:48:17] local.INFO: Request Origin:   
+[2025-06-08 07:48:17] local.INFO: Request Origin:   
+[2025-06-08 07:48:17] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:48:18] local.INFO: Request Origin:   
+[2025-06-08 07:49:22] local.INFO: Request Origin:   
+[2025-06-08 07:49:22] local.INFO: Request Origin:   
+[2025-06-08 07:49:23] local.INFO: Request Origin:   
+[2025-06-08 07:49:23] local.INFO: Request Origin:   
+[2025-06-08 07:49:23] local.INFO: Request Origin:   
+[2025-06-08 07:49:23] local.INFO: Request Origin:   
+[2025-06-08 07:49:23] local.INFO: Request Origin:   
+[2025-06-08 07:49:24] local.INFO: Request Origin:   
+[2025-06-08 07:49:24] local.INFO: Request Origin:   
+[2025-06-08 07:49:24] local.INFO: Request Origin:   
+[2025-06-08 07:49:24] local.INFO: Request Origin:   
+[2025-06-08 07:49:24] local.INFO: Request Origin:   
+[2025-06-08 07:49:25] local.INFO: Request Origin:   
+[2025-06-08 07:49:25] local.INFO: Request Origin:   
+[2025-06-08 07:49:25] local.INFO: Request Origin:   
+[2025-06-08 07:49:40] local.INFO: Request Origin:   
+[2025-06-08 07:49:40] local.INFO: Request Origin:   
+[2025-06-08 07:50:04] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:50:07] local.INFO: Request Origin:   
+[2025-06-08 07:50:07] local.INFO: Request Origin:   
+[2025-06-08 07:50:07] local.INFO: Request Origin:   
+[2025-06-08 07:50:08] local.INFO: Request Origin:   
+[2025-06-08 07:50:08] local.INFO: Request Origin:   
+[2025-06-08 07:50:08] local.INFO: Request Origin:   
+[2025-06-08 07:50:08] local.INFO: Request Origin:   
+[2025-06-08 07:50:08] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:09] local.INFO: Request Origin:   
+[2025-06-08 07:50:10] local.INFO: Request Origin:   
+[2025-06-08 07:50:10] local.INFO: Request Origin:   
+[2025-06-08 07:50:11] local.INFO: Request Origin:   
+[2025-06-08 07:50:13] local.INFO: Request Origin:   
+[2025-06-08 07:50:13] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:14] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:15] local.INFO: Request Origin:   
+[2025-06-08 07:50:16] local.INFO: Request Origin:   
+[2025-06-08 07:50:23] local.INFO: Request Origin:   
+[2025-06-08 07:50:25] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:26] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:27] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:28] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:29] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:30] local.INFO: Request Origin:   
+[2025-06-08 07:50:31] local.INFO: Request Origin:   
+[2025-06-08 07:50:31] local.INFO: Request Origin:   
+[2025-06-08 07:50:32] local.INFO: Request Origin:   
+[2025-06-08 07:50:32] local.INFO: Request Origin:   
+[2025-06-08 07:50:32] local.INFO: Request Origin:   
+[2025-06-08 07:50:32] local.INFO: Request Origin:   
+[2025-06-08 07:50:32] local.INFO: Request Origin:   
+[2025-06-08 07:50:33] local.INFO: Request Origin:   
+[2025-06-08 07:50:33] local.INFO: Request Origin:   
+[2025-06-08 07:50:33] local.INFO: Request Origin:   
+[2025-06-08 07:50:33] local.INFO: Request Origin:   
+[2025-06-08 07:50:33] local.INFO: Request Origin:   
+[2025-06-08 07:50:34] local.INFO: Request Origin:   
+[2025-06-08 07:50:34] local.INFO: Request Origin:   
+[2025-06-08 07:50:34] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:46] local.INFO: Request Origin:   
+[2025-06-08 07:50:47] local.INFO: Request Origin:   
+[2025-06-08 07:50:47] local.INFO: Request Origin:   
+[2025-06-08 07:50:47] local.INFO: Request Origin:   
+[2025-06-08 07:50:48] local.INFO: Request Origin:   
+[2025-06-08 07:50:48] local.INFO: Request Origin:   
+[2025-06-08 07:50:48] local.INFO: Request Origin:   
+[2025-06-08 07:50:48] local.INFO: Request Origin:   
+[2025-06-08 07:50:48] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:49] local.INFO: Request Origin:   
+[2025-06-08 07:50:50] local.INFO: Request Origin:   
+[2025-06-08 07:50:50] local.INFO: Request Origin:   
+[2025-06-08 07:50:50] local.INFO: Request Origin:   
+[2025-06-08 07:50:50] local.INFO: Request Origin:   
+[2025-06-08 07:50:51] local.INFO: Request Origin:   
+[2025-06-08 07:50:51] local.INFO: Request Origin:   
+[2025-06-08 07:50:51] local.INFO: Request Origin:   
+[2025-06-08 07:50:51] local.INFO: Request Origin:   
+[2025-06-08 07:50:51] local.INFO: Request Origin:   
+[2025-06-08 07:51:15] local.INFO: Request Origin:   
+[2025-06-08 07:51:15] local.INFO: Request Origin:   
+[2025-06-08 07:51:49] local.INFO: Request Origin:   
+[2025-06-08 07:51:51] local.INFO: Request Origin:   
+[2025-06-08 07:51:51] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:54] local.INFO: Request Origin:   
+[2025-06-08 07:51:57] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:58] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:51:59] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:00] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:01] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:02] local.INFO: Request Origin:   
+[2025-06-08 07:52:03] local.INFO: Request Origin:   
+[2025-06-08 07:52:03] local.INFO: Request Origin:   
+[2025-06-08 07:52:03] local.INFO: Request Origin:   
+[2025-06-08 07:52:04] local.INFO: Request Origin:   
+[2025-06-08 07:52:04] local.INFO: Request Origin:   
+[2025-06-08 07:52:04] local.INFO: Request Origin:   
+[2025-06-08 07:52:04] local.INFO: Request Origin:   
+[2025-06-08 07:52:04] local.INFO: Request Origin:   
+[2025-06-08 07:52:11] local.INFO: Request Origin:   
+[2025-06-08 07:52:11] local.INFO: Request Origin:   
+[2025-06-08 07:52:12] local.INFO: Request Origin:   
+[2025-06-08 07:52:13] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:16] local.INFO: Request Origin:   
+[2025-06-08 07:52:17] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:18] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:19] local.INFO: Request Origin:   
+[2025-06-08 07:52:20] local.INFO: Request Origin:   
+[2025-06-08 07:52:20] local.INFO: Request Origin:   
+[2025-06-08 07:52:20] local.INFO: Request Origin:   
+[2025-06-08 07:52:20] local.INFO: Request Origin:   
+[2025-06-08 07:52:20] local.INFO: Request Origin:   
+[2025-06-08 07:52:21] local.INFO: Request Origin:   
+[2025-06-08 07:52:21] local.INFO: Request Origin:   
+[2025-06-08 07:52:21] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:39] local.INFO: Request Origin:   
+[2025-06-08 07:52:40] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:41] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:55] local.INFO: Request Origin:   
+[2025-06-08 07:52:56] local.INFO: Request Origin:   
+[2025-06-08 07:52:59] local.INFO: Request Origin:   
+[2025-06-08 07:52:59] local.INFO: Request Origin:   
+[2025-06-08 07:52:59] local.INFO: Request Origin:   
+[2025-06-08 07:52:59] local.INFO: Request Origin:   
+[2025-06-08 07:52:59] local.INFO: Request Origin:   
+[2025-06-08 07:53:00] local.INFO: Request Origin:   
+[2025-06-08 07:53:00] local.INFO: Request Origin:   
+[2025-06-08 07:53:00] local.INFO: Request Origin:   
+[2025-06-08 07:53:00] local.INFO: Request Origin:   
+[2025-06-08 07:54:23] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:54:32] local.INFO: Request Origin:   
+[2025-06-08 07:54:32] local.INFO: Request Origin:   
+[2025-06-08 07:54:32] local.INFO: Request Origin:   
+[2025-06-08 07:54:32] local.INFO: Request Origin:   
+[2025-06-08 07:54:32] local.INFO: Request Origin:   
+[2025-06-08 07:54:32] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:54:33] local.INFO: Request Origin:   
+[2025-06-08 07:54:33] local.INFO: Request Origin:   
+[2025-06-08 07:54:33] local.INFO: Request Origin:   
+[2025-06-08 07:54:35] local.INFO: Request Origin:   
+[2025-06-08 07:54:37] local.INFO: Request Origin:   
+[2025-06-08 07:54:37] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:39] local.INFO: Request Origin:   
+[2025-06-08 07:54:40] local.INFO: Request Origin:   
+[2025-06-08 07:54:40] local.INFO: Request Origin:   
+[2025-06-08 07:54:40] local.INFO: Request Origin:   
+[2025-06-08 07:54:41] local.INFO: Request Origin:   
+[2025-06-08 07:54:41] local.INFO: Request Origin:   
+[2025-06-08 07:54:41] local.INFO: Request Origin:   
+[2025-06-08 07:54:41] local.INFO: Request Origin:   
+[2025-06-08 07:54:41] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:36] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:37] local.INFO: Request Origin:   
+[2025-06-08 07:58:38] local.INFO: Request Origin:   
+[2025-06-08 07:58:38] local.INFO: Request Origin:   
+[2025-06-08 07:58:55] local.INFO: Request Origin:   
+[2025-06-08 07:58:55] local.INFO: Request Origin:   
+[2025-06-08 07:59:00] local.INFO: Request Origin:   
+[2025-06-08 07:59:00] local.INFO: Request Origin:   
+[2025-06-08 07:59:00] local.INFO: Request Origin:   
+[2025-06-08 07:59:00] local.INFO: Request Origin:   
+[2025-06-08 07:59:17] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:59:32] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:59:45] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:48] local.INFO: Request Origin:   
+[2025-06-08 07:59:49] local.INFO: Request Origin:   
+[2025-06-08 07:59:49] local.INFO: Request Origin:   
+[2025-06-08 07:59:56] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:57] local.INFO: Request Origin:   
+[2025-06-08 07:59:58] local.INFO: Request Origin:   
+[2025-06-08 07:59:58] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:01] local.INFO: Request Origin:   
+[2025-06-08 08:00:02] local.INFO: Request Origin:   
+[2025-06-08 08:00:02] local.INFO: Request Origin:   
+[2025-06-08 08:00:03] local.INFO: Request Origin:   
+[2025-06-08 08:00:03] local.INFO: Request Origin:   
+[2025-06-08 08:00:03] local.INFO: Request Origin:   
+[2025-06-08 08:00:03] local.INFO: Request Origin:   
+[2025-06-08 08:00:04] local.INFO: Request Origin:   
+[2025-06-08 08:00:04] local.INFO: Request Origin:   
+[2025-06-08 08:00:04] local.INFO: Request Origin:   
+[2025-06-08 08:00:04] local.INFO: Request Origin:   
+[2025-06-08 08:04:07] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:08] local.INFO: Request Origin:   
+[2025-06-08 08:04:09] local.INFO: Request Origin:   
+[2025-06-08 08:04:09] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:10] local.INFO: Request Origin:   
+[2025-06-08 08:04:11] local.INFO: Request Origin:   
+[2025-06-08 08:05:30] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:04] local.INFO: Request Origin:   
+[2025-06-08 08:06:05] local.INFO: Request Origin:   
+[2025-06-08 08:06:05] local.INFO: Request Origin:   
+[2025-06-08 08:06:08] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:06:09] local.INFO: Request Origin:   
+[2025-06-08 08:13:59] local.INFO: Request Origin:   
+[2025-06-08 08:13:59] local.INFO: Request Origin:   
