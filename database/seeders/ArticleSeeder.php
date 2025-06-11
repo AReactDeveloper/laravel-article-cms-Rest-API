@@ -82,6 +82,7 @@ class ArticleSeeder extends Seeder
                 'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
                 'imgUrl' => 'https://picsum.photos/id/' . ($i + rand(0, 100)) . '/200/200',
                 'category_id' => $categoryIds[array_rand($categoryIds)],
+                'isDraft'=>false,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

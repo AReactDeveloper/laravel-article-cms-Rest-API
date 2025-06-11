@@ -2082,3 +2082,112 @@ Stack trace:
 [2025-06-08 08:06:09] local.INFO: Request Origin:   
 [2025-06-08 08:13:59] local.INFO: Request Origin:   
 [2025-06-08 08:13:59] local.INFO: Request Origin:   
+[2025-06-08 10:17:06] local.INFO: Request Origin:   
+[2025-06-08 10:17:07] local.INFO: Request Origin:   
+[2025-06-08 10:17:08] local.INFO: Request Origin:   
+[2025-06-08 10:17:08] local.INFO: Request Origin:   
+[2025-06-08 10:17:08] local.INFO: Request Origin:   
+[2025-06-08 10:17:08] local.INFO: Request Origin:   
+[2025-06-08 10:17:09] local.INFO: Request Origin:   
+[2025-06-08 10:17:09] local.INFO: Request Origin:   
+[2025-06-08 10:17:09] local.INFO: Request Origin:   
+[2025-06-08 10:17:33] local.INFO: Request Origin:   
+[2025-06-08 10:17:55] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 10:17:58] local.INFO: Request Origin:   
+[2025-06-08 10:18:09] local.INFO: Request Origin:   
+[2025-06-08 10:18:11] local.INFO: Request Origin:   
+[2025-06-08 10:18:11] local.INFO: Request Origin:   
+[2025-06-08 10:18:12] local.INFO: Request Origin:   
+[2025-06-08 10:18:12] local.INFO: Request Origin:   
+[2025-06-08 10:18:12] local.INFO: Request Origin:   
+[2025-06-08 10:19:40] local.INFO: Request Origin:   
+[2025-06-08 10:19:40] local.INFO: Request Origin:   
+[2025-06-08 12:33:52] local.INFO: Request Origin:   
+[2025-06-08 12:33:53] local.INFO: Request Origin:   
+[2025-06-08 12:33:54] local.INFO: Request Origin:   
+[2025-06-08 12:33:54] local.INFO: Request Origin:   
+[2025-06-08 12:33:54] local.INFO: Request Origin:   
+[2025-06-08 12:33:54] local.INFO: Request Origin:   
+[2025-06-08 12:33:59] local.INFO: Request Origin:   
+[2025-06-08 12:34:00] local.INFO: Request Origin:   
+[2025-06-08 12:34:19] local.INFO: Request Origin:   
+[2025-06-08 12:34:32] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-08 12:34:36] local.INFO: Request Origin:   
+[2025-06-08 12:34:38] local.INFO: Request Origin:   
+[2025-06-08 12:34:38] local.INFO: Request Origin:   
+[2025-06-08 12:34:39] local.INFO: Request Origin:   
+[2025-06-08 12:34:39] local.INFO: Request Origin:   
+[2025-06-08 12:34:39] local.INFO: Request Origin:   
+[2025-06-08 12:34:39] local.INFO: Request Origin:   
+[2025-06-08 12:35:08] local.INFO: Request Origin:   
+[2025-06-08 12:35:08] local.INFO: Request Origin:   
+[2025-06-08 12:35:09] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:35:16] local.INFO: Request Origin:   
+[2025-06-09 07:35:17] local.INFO: Request Origin:   
+[2025-06-09 07:35:17] local.INFO: Request Origin:   
+[2025-06-09 07:35:18] local.INFO: Request Origin:   
+[2025-06-09 07:35:18] local.INFO: Request Origin:   
+[2025-06-09 07:35:18] local.INFO: Request Origin:   
+[2025-06-09 07:35:18] local.INFO: Request Origin:   
+[2025-06-09 07:35:24] local.INFO: Request Origin:   
+[2025-06-09 07:35:24] local.INFO: Request Origin:   
+[2025-06-09 07:35:50] local.INFO: Request Origin:   
+[2025-06-09 07:36:01] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:36:04] local.INFO: Request Origin:   
+[2025-06-09 07:36:06] local.INFO: Request Origin:   
+[2025-06-09 07:36:06] local.INFO: Request Origin:   
+[2025-06-09 07:36:07] local.INFO: Request Origin:   
+[2025-06-09 07:36:07] local.INFO: Request Origin:   
+[2025-06-09 07:36:07] local.INFO: Request Origin:   
+[2025-06-09 07:36:07] local.INFO: Request Origin:   
+[2025-06-09 07:41:00] local.INFO: Request Origin:   
+[2025-06-09 07:41:00] local.INFO: Request Origin:   
+[2025-06-09 07:41:02] local.INFO: Request Origin:   
+[2025-06-09 07:41:02] local.INFO: Request Origin:   
+[2025-06-09 07:41:02] local.INFO: Request Origin:   
+[2025-06-09 07:41:03] local.INFO: Request Origin:   
+[2025-06-09 07:41:04] local.INFO: Request Origin:   
+[2025-06-09 07:41:04] local.INFO: Request Origin:   
+[2025-06-09 07:41:05] local.INFO: Request Origin:   
+[2025-06-09 07:41:05] local.INFO: Request Origin:   
+[2025-06-09 07:41:05] local.INFO: Request Origin:   
+[2025-06-09 07:41:05] local.INFO: Request Origin:   
+[2025-06-09 07:41:09] local.INFO: Request Origin:   
+[2025-06-09 07:41:09] local.INFO: Request Origin:   
+[2025-06-09 07:41:09] local.INFO: Request Origin:   
+[2025-06-09 07:41:10] local.INFO: Request Origin:   
+[2025-06-09 07:41:11] local.INFO: Request Origin:   
+[2025-06-09 07:41:11] local.INFO: Request Origin:   
+[2025-06-09 07:41:12] local.INFO: Request Origin:   
+[2025-06-09 07:41:12] local.INFO: Request Origin:   
+[2025-06-09 07:41:14] local.INFO: Request Origin:   
+[2025-06-09 07:41:14] local.INFO: Request Origin:   
+[2025-06-09 07:41:15] local.INFO: Request Origin:   
+[2025-06-09 07:41:16] local.INFO: Request Origin:   
+[2025-06-09 07:41:17] local.INFO: Request Origin:   
+[2025-06-09 07:41:17] local.INFO: Request Origin:   
+[2025-06-09 07:41:23] local.INFO: Request Origin:   
+[2025-06-09 07:41:25] local.INFO: Request Origin:   
+[2025-06-09 07:41:25] local.INFO: Request Origin:   
+[2025-06-09 07:41:25] local.INFO: Request Origin:   
+[2025-06-09 07:41:25] local.INFO: Request Origin:   
+[2025-06-09 07:41:26] local.INFO: Request Origin:   
+[2025-06-09 07:41:26] local.INFO: Request Origin:   
+[2025-06-09 07:41:26] local.INFO: Request Origin:   
+[2025-06-09 07:44:18] local.INFO: Request Origin:   
+[2025-06-09 07:44:18] local.INFO: Request Origin:   
+[2025-06-09 07:44:18] local.INFO: Request Origin:   
+[2025-06-09 07:44:18] local.INFO: Request Origin:   
+[2025-06-09 07:44:20] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:45:35] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:46:21] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:52:24] local.INFO: Request Origin:   
+[2025-06-09 07:52:26] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:52:31] local.INFO: Request Origin:   
+[2025-06-09 07:52:38] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:54:41] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 07:54:45] local.INFO: Request Origin:   
+[2025-06-09 07:54:45] local.INFO: Request Origin:   
+[2025-06-09 07:54:46] local.INFO: Request Origin:   
+[2025-06-09 07:54:49] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-09 08:00:39] local.INFO: Request Origin:   

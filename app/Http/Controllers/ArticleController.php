@@ -25,6 +25,7 @@ class ArticleController extends Controller
         try {
             $articles = Article::orderBy('created_at', 'desc')
             ->with(['category', 'tags','comments'])
+            ->where('isDraft',0)
             ->get();
 
             if ($articles === null) {
