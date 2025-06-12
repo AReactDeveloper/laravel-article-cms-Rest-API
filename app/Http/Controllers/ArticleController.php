@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\SiteInfo;
 use App\Models\Tag;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -20,21 +19,27 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
         try {
-            $articles = Article::orderBy('created_at', 'desc')
-            ->with(['category', 'tags','comments'])
-            ->where('isDraft',0)
-            ->get();
+            $isDraft = $request->query('isDraft');
 
-            if ($articles === null) {
-                return response()->json(['error' => 'No article was found , create one today'], 404);
+            $query = Article::orderBy('created_at', 'desc')
+                ->with(['category', 'tags', 'comments']);
+
+            if ($isDraft === null) {
+                $query->where('isDraft', 0);
+            }
+
+            $articles = $query->get();
+
+            if ($articles->isEmpty()) {
+                return response()->json(['error' => 'No articles found'], 404);
             }
 
             return response()->json($articles, 200);
-        } catch (QueryException $e) { //custom errror for db query
-            return response()->json(['error' => $e . "An error occurred while fetching articles"], 500);
+        } catch (QueryException $e) {
+            return response()->json(['error' => $e->getMessage() . " An error occurred while fetching articles"], 500);
         }
     }
 
@@ -50,6 +55,7 @@ class ArticleController extends Controller
                 'excerpt' => 'nullable|string|min:3',
                 'imgUrl' => 'nullable|url',
                 'category_id' => 'nullable|integer',
+                'isDraft'=>'boolean',
                 'tags' => 'nullable|array',
             ]);
 
@@ -72,6 +78,7 @@ class ArticleController extends Controller
             $article->content = $request->content;
             $article->excerpt = $request->excerpt;
             $article->imgUrl = $request->imgUrl;
+            $article->isDraft = $request->isDraft;
             $article->category_id = $request->category_id;
 
             // Check if an image file was uploaded
@@ -139,6 +146,7 @@ class ArticleController extends Controller
                 'content' => 'required|string|min:3',
                 'imgUrl' => 'nullable|url',
                 'category_id' => 'nullable|integer',
+                'isDraft' => 'boolean',
                 'tags' => 'nullable|array'
             ]);
 
@@ -157,6 +165,7 @@ class ArticleController extends Controller
             $article->slug = $newSlug;
             $article->content = $request->content;
             $article->excerpt = $request->excerpt;
+            $article->isDraft = $request->isDraft;
             $article->imgUrl = $request->imgUrl;
 
             if ($request->category_id) {
