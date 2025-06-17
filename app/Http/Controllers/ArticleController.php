@@ -110,8 +110,10 @@ class ArticleController extends Controller
                     return response()->json(['message' => 'Article was created successfully.'], 200);
                 }
             }
-
-            return response()->json($article, 201);
+                return response()->json([
+                    'article' => $article,
+                    'link' => 'https://lara-blogcms-frontend.vercel.app/' . $article->slug
+                ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['error' => $e->getMessage()], 422);
         } catch (\Throwable $e) {
