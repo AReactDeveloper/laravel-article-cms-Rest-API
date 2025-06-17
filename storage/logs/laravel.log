@@ -7107,3 +7107,177 @@ Did you mean this?
 [2025-06-17 04:07:29] local.INFO: Request Origin: http://localhost:3000  
 [2025-06-17 04:07:29] local.INFO: Request Origin: http://localhost:3000  
 [2025-06-17 04:07:30] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-17 04:10:10] local.ERROR: SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement "pdo_stmt_00000001" does not exist (Connection: pgsql, SQL: select exists (select 1 from pg_class c, pg_namespace n where n.nspname = 'public' and c.relname = 'migrations' and c.relkind in ('r', 'p') and n.oid = c.relnamespace)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 26000): SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement \"pdo_stmt_00000001\" does not exist (Connection: pgsql, SQL: select exists (select 1 from pg_class c, pg_namespace n where n.nspname = 'public' and c.relname = 'migrations' and c.relkind in ('r', 'p') and n.oid = c.relnamespace)) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/PostgresBuilder.php(52): Illuminate\\Database\\Connection->scalar()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\PostgresBuilder->hasTable()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (PDOException(code: 26000): SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement \"pdo_stmt_00000001\" does not exist at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php:159)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php(159): PDOStatement->execute()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php(46): Illuminate\\Database\\Connectors\\PostgresConnector->configureSearchPath()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\PostgresConnector->connect()
+#3 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithHosts():180}()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1231): call_user_func()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(344): Illuminate\\Database\\Connection->select()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/PostgresBuilder.php(52): Illuminate\\Database\\Connection->scalar()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\PostgresBuilder->hasTable()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#33 {main}
+"} 
+[2025-06-17 04:11:01] local.ERROR: SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement "pdo_stmt_00000003" does not exist (Connection: pgsql, SQL: select c.relname as name, n.nspname as schema, pg_total_relation_size(c.oid) as size, obj_description(c.oid, 'pg_class') as comment from pg_class c, pg_namespace n where c.relkind in ('r', 'p') and n.oid = c.relnamespace and n.nspname not in ('pg_catalog', 'information_schema') order by c.relname) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 26000): SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement \"pdo_stmt_00000003\" does not exist (Connection: pgsql, SQL: select c.relname as name, n.nspname as schema, pg_total_relation_size(c.oid) as size, obj_description(c.oid, 'pg_class') as comment from pg_class c, pg_namespace n where c.relkind in ('r', 'p') and n.oid = c.relnamespace and n.nspname not in ('pg_catalog', 'information_schema') order by c.relname) at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(385): Illuminate\\Database\\Connection->select()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(183): Illuminate\\Database\\Connection->selectFromWriteConnection()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/PostgresBuilder.php(104): Illuminate\\Database\\Schema\\Builder->getTables()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/WipeCommand.php(73): Illuminate\\Database\\Schema\\PostgresBuilder->dropAllTables()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/WipeCommand.php(50): Illuminate\\Database\\Console\\WipeCommand->dropAllTables()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\WipeCommand->handle()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(41): Illuminate\\Console\\Command->runCommand()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(71): Illuminate\\Console\\Command->callSilent()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(40): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}:71}()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(60): Illuminate\\Console\\View\\Components\\Task->render()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(71): Illuminate\\Console\\View\\Components\\Factory->__call()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#34 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#35 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#36 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#37 {main}
+
+[previous exception] [object] (PDOException(code: 26000): SQLSTATE[26000]: Invalid sql statement name: 7 ERROR:  prepared statement \"pdo_stmt_00000003\" does not exist at /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php:412)
+[stacktrace]
+#0 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(412): PDOStatement->execute()
+#1 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
+#2 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#4 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Connection.php(385): Illuminate\\Database\\Connection->select()
+#5 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(183): Illuminate\\Database\\Connection->selectFromWriteConnection()
+#6 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Schema/PostgresBuilder.php(104): Illuminate\\Database\\Schema\\Builder->getTables()
+#7 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/WipeCommand.php(73): Illuminate\\Database\\Schema\\PostgresBuilder->dropAllTables()
+#8 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/WipeCommand.php(50): Illuminate\\Database\\Console\\WipeCommand->dropAllTables()
+#9 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\WipeCommand->handle()
+#10 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#11 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#12 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#13 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#14 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#15 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#16 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#17 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#18 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(41): Illuminate\\Console\\Command->runCommand()
+#19 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(71): Illuminate\\Console\\Command->callSilent()
+#20 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(40): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}:71}()
+#21 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(60): Illuminate\\Console\\View\\Components\\Task->render()
+#22 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(71): Illuminate\\Console\\View\\Components\\Factory->__call()
+#23 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
+#24 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#25 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#26 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#27 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#28 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#29 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Container/Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#30 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(213): Illuminate\\Container\\Container->call()
+#31 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Command/Command.php(318): Illuminate\\Console\\Command->execute()
+#32 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#33 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(1092): Illuminate\\Console\\Command->run()
+#34 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand()
+#35 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/symfony/console/Application.php(192): Symfony\\Component\\Console\\Application->doRun()
+#36 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#37 /home/winston/Documents/projects/laravel-article-cms-Rest-API/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#38 /home/winston/Documents/projects/laravel-article-cms-Rest-API/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#39 {main}
+"} 
+[2025-06-17 05:04:36] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-17 05:06:52] local.INFO: Request Origin:   
+[2025-06-17 05:06:52] local.INFO: Request Origin:   
+[2025-06-17 05:06:52] local.INFO: Request Origin:   
+[2025-06-17 05:06:52] local.INFO: Request Origin:   
+[2025-06-17 05:06:52] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:53] local.INFO: Request Origin:   
+[2025-06-17 05:06:54] local.INFO: Request Origin:   
+[2025-06-17 05:06:54] local.INFO: Request Origin:   
+[2025-06-17 05:06:54] local.INFO: Request Origin:   
+[2025-06-17 05:14:01] local.INFO: Request Origin:   
+[2025-06-17 05:14:01] local.INFO: Request Origin:   
+[2025-06-17 05:17:43] local.INFO: Request Origin:   
+[2025-06-17 05:17:44] local.INFO: Request Origin:   
+[2025-06-17 05:17:44] local.INFO: Request Origin: http://localhost:3000  
+[2025-06-17 05:21:00] local.INFO: Request Origin: http://localhost:3000  
