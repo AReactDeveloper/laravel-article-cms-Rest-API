@@ -59,6 +59,9 @@ class ArticleController extends Controller
                 'tags' => 'nullable|array',
             ]);
 
+            //if category not set default to uncategorized
+            $data['category_id'] = $data['category_id'] ?? 1; // 1 is your default value
+
             // Create a new Article instance
             $article = new Article();
             $article->title = $request->title;

@@ -13,7 +13,7 @@ class TagController extends Controller
     public function index()
     {
         //
-        $tags = Tag::withCount('articles')->with('articles')->get();
+        $tags = Tag::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
         return response()->json($tags);
     }
 
