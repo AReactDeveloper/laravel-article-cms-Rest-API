@@ -63,9 +63,13 @@ class AuthController extends Controller
     public function updateUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'confirmEmail' => 'required|same:email'
+            'email' => 'nullable|email',
+            'confirmEmail' => 'nullable|same:email',
+            'about_me'=> 'nullable|string',
+            'avatar_link'=> 'nullable|url',
+            'name'=> 'nullable|string',
         ]);
+
 
         if ($validator->fails()) {
             return response()->json([
@@ -76,6 +80,9 @@ class AuthController extends Controller
 
         $user = $request->user();
         $user->email = $request->email;
+        $user->name = $request->name;
+        $user->about_me = $request->about_me;
+        $user->avatar_link = $request->avatar_link;
         $user->save();
         return response()->json(['message' => 'User updated successfully'], 200);
     }

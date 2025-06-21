@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\AuthController;
@@ -31,14 +30,13 @@ Route::apiResource('tags', TagController::class)->only(['index', 'show']);
 Route::apiResource('pages', PageController::class)->only(['index', 'show']);
 Route::apiResource('settings', SiteInfoController::class)->only(['index', 'show']);
 Route::apiResource('file', AttachmentsController::class)->only(['index', 'show']);
-Route::apiResource('analytics', AnalyticsController::class);
 
 
 // Protected routes (require authentication)
 Route::middleware('auth:sanctum')->group(function () {
     // User routes
     Route::put('user', [AuthController::class, 'updateUser']);
-    Route::get('us er', [AuthController::class, 'getAuthUser']);
+    Route::get('user', [AuthController::class, 'getAuthUser']);
     Route::post('/passwordChange', [AuthController::class, 'changePassword']);
     Route::post('logout', [AuthController::class, 'logout']);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SiteInfo;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class SiteInfoController extends Controller
 {
@@ -21,7 +22,9 @@ class SiteInfoController extends Controller
     {
         //
         try {
-            $siteInfo = siteInfo::first();
+            $siteInfo = Cache::remember('siteInfo',3600,function(){
+                return siteInfo::first();
+            });
             return response()->json($siteInfo, 200);
         } catch (\Exception $e) {
             report($e);
@@ -61,6 +64,9 @@ class SiteInfoController extends Controller
 
             $input = $request->all();
             $siteInfo->update($input);
+
+            Cache::forget('siteInfo');
+
             return response()->json('site info updated succufuly ' . $siteInfo, 200);
         } catch (QueryException $e) {
             report($e);

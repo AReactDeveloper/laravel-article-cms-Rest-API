@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
 
 class TagController extends Controller
 {
@@ -13,16 +15,10 @@ class TagController extends Controller
     public function index()
     {
         //
-        $tags = Tag::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
+        $tags = Cache::remember('tags',3600,function(){
+            return Tag::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
+        });
         return response()->json($tags);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -33,10 +29,14 @@ class TagController extends Controller
         //
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description'=>'nullable|string'
+            'description' => 'nullable|string|max:255',
         ]);
 
         $tag = Tag::create($validated);
+
+        //clear cache
+        Cache::forget('tags');
+
         return response()->json(['message' => 'tag was created successfully.'], 201);
     }
 
@@ -45,9 +45,12 @@ class TagController extends Controller
      */
     public function show($title)
     {
-        $tag = Tag::with('articles')->where('title', $title)->first();
+        $tag = Cache::remember('tag_'.$title,3600,function () use($title){
+            return Tag::with('articles')->where('title', $title)->first();
+        });
+
         if (!$tag) {
-            return response()->json(['error' => 'Category not found'], 404);
+            return response()->json(['error' => 'Tag not found'], 404);
         }
 
         try {
@@ -56,29 +59,30 @@ class TagController extends Controller
             return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);
         }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tag $tag)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Tag $tag)
     {
+        $title = $tag->title;
         // Validate the incoming request
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
+
+        $validated['title'] = strtolower($validated['title']);
 
         // Update the tag
         $tag->update([
-            'title' => $request->title,
+            'title' => $validated['title'],
+            'description'=> $validated['description']
         ]);
+
+
+        //clear cache
+        Cache::forget('tags');
+        Cache::forget('tag_'.$title);
 
         return response()->json(['message' => 'Tag was updated successfully.'], 200);
     }
@@ -89,8 +93,14 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         try {
+            $title = $tag->title;
             // Delete the tag
             $tag->delete();
+
+            //clear cache
+            Cache::forget('tags');
+            Cache::forget('tag_'.$title);
+
             return response()->json(['message' => 'Tag was deleted successfully.'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
+
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,9 @@ class CategoryController extends Controller
     public function index()
     {
         try {
-            $categories = Category::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
+            $categories = Cache::remember('categories',3600,function(){
+                return Category::withCount('articles')->with('articles')->orderBy('created_at', 'desc')->get();
+            });
             return response()->json($categories);
         } catch (\Exception $e) {
             return response()->json(['error' => 'An unexpected error occurred. when fetching categories.'], 500);
@@ -33,7 +37,7 @@ class CategoryController extends Controller
             'description' => 'nullable|string|max:255',
         ]);
 
-        $validated['title'] = Str::lower($request->title);
+        $validated['title'] = Str::lower($validated['title']);
 
         // Create a new Category instance
         $newCategory = Category::create([
@@ -41,10 +45,14 @@ class CategoryController extends Controller
             'description'=> $validated['description']
         ]);
 
+        
         // If the category is created successfully
         if (!$newCategory) {
             return response()->json(['error' => 'An unexpected error occurred while creating the category.'], 500);
         }
+        
+        //clear cache
+        Cache::forget('categories');
 
         return response()->json(['message' => 'Category created successfully.'], 201);
     }
@@ -55,7 +63,10 @@ class CategoryController extends Controller
      */
     public function show($title)
     {
-        $category = Category::with('articles')->where('title', $title)->first();
+        $category = Cache::remember('category_'.$title,3600,function () use($title){
+            return Category::with('articles')->where('title', $title)->first();
+        });
+
         if ($category === null) {
             return response()->json(['error' => 'Category not found'], 404);
         }
@@ -76,12 +87,21 @@ class CategoryController extends Controller
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description'=>'string'
+            'description' => 'nullable|string|max:255',
         ]);
+
+        $validated['title'] = Str::lower($validated['title']);
 
         if (!$category->update($validated)) {
             return response()->json(['error' => 'Failed to update category.'], 500);
         }
+
+        $title = $category->title;
+
+        //clear cache
+        Cache::forget('categories');
+        Cache::forget('category_'.$title);
+
 
         return response()->json(['message' => 'Category was updated successfully.'], 200);
 
@@ -95,6 +115,10 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->delete();
+            $title = $category->title;
+            //clear cache
+            Cache::forget('categories');
+            Cache::forget('category_'.$title);
             return response()->json(['message' => 'Category was deleted successfully.'], 200);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json(['error' => 'Category was not found.'], 404);
